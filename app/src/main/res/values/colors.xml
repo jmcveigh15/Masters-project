@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Below colors from DAWFL website
+         using eyedropper tool in
+         mozilla firefox browser web developer tools-->
+    <color name="colorPrimary">#ffb516</color>
+    <color name="colorPrimaryDark">#404040</color>
+    <color name="colorAccent">#ffb516</color>
+</resources>
