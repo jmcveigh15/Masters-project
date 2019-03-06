@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">DAWFL Companion App</string>
+
+    <string name="fixtures_button">Fixtures</string>
+    <string name="tables_button">Tables</string>
+    <string name="results_button">Results</string>
+
+    <string name="logo_description">League Logo</string>
+    <string name="fixtures_description">This is a link to the fixtures section</string>
+    <string name="tables_description">This is a link to the tables section</string>
+    <string name="results_description">This is a link to the results section</string>
+
+    <string name="forum_comment_hint">Enter a comment</string>
 </resources>
