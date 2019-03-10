@@ -1,5 +1,6 @@
 package jmcveigh15.qub.ac.uk.dawflcompanionapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -7,6 +8,9 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -18,6 +22,12 @@ public class ForumListFragment extends Fragment {
 
     private RecyclerView mForumRecyclerView;
     private ForumCommentAdapter mAdapter;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     @Nullable
     @Override
@@ -33,12 +43,43 @@ public class ForumListFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateUI();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.fragment_forum_list, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.new_forum:
+                ForumComment forumComment = new ForumComment();
+                ForumCentre.get(getActivity()).addForum(forumComment);
+                Intent intent = ForumPagerActivity
+                        .newIntent(getActivity(), forumComment.getID());
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     private void updateUI() {
         ForumCentre forumCentre = ForumCentre.get(getActivity());
         List<ForumComment> forumComments = forumCentre.getForumComments();
 
-        mAdapter = new ForumCommentAdapter(forumComments);
-        mForumRecyclerView.setAdapter(mAdapter);
+        if (mAdapter == null) {
+            mAdapter = new ForumCommentAdapter(forumComments);
+            mForumRecyclerView.setAdapter(mAdapter);
+        } else {
+            mAdapter.notifyDataSetChanged();
+        }
     }
 
     private class ForumCommentHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -57,11 +98,11 @@ public class ForumListFragment extends Fragment {
             mCommentTextView.setText(mForumComment.getComment());
         }
 
+        // this makes it switch screens, could be used for main menu to anywhere
         @Override
         public void onClick(View view) {
-            Toast.makeText(getActivity(),
-                    mForumComment.getComment() + " clicked!", Toast.LENGTH_SHORT)
-                    .show();
+            Intent intent = ForumPagerActivity.newIntent(getActivity(), mForumComment.getID());
+            startActivity(intent);
         }
     }
 

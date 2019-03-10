@@ -20,16 +20,16 @@ public class ForumCentre {
 
     private ForumCentre(Context context){
         mForumComments = new ArrayList<>();
-        for(int i =0; i<10; i++){
-            ForumComment forumComment = new ForumComment();
-            forumComment.setComment("Comment #"+i);
-            mForumComments.add(forumComment);
-        }
+    }
+
+    public void addForum(ForumComment f){
+        mForumComments.add(f);
     }
 
     public List<ForumComment> getForumComments(){
         return mForumComments;
     }
+
 
     public ForumComment getForumComment(UUID id){
         for(ForumComment forumComment : mForumComments){
@@ -39,7 +39,6 @@ public class ForumCentre {
         }
 
         return null;
+
     }
-
-
 }
