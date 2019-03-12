@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TableRow>
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/clubCol"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/playedCol"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/WonCol"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/DrawnCol"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/LostCol"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/scoredCol"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/conCol"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/diffCol"
+            android:textSize="25sp" />
+
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/pointsCol"
+            android:textSize="25sp" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/club"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/valNum"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/valNum"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/valNum"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/valNum"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/valNum"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/valNum"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/valNum"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/valNum"
+            android:textSize="25sp" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/club"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/valNum"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/valNum"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/valNum"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/valNum"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/valNum"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/valNum"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/valNum"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/valNum"
+            android:textSize="25sp" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/club"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/valNum"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/valNum"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/valNum"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/valNum"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/valNum"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/valNum"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/valNum"
+            android:textSize="25sp" />
+
+        <TextView
+            android:padding="5dp"
+            android:text="@string/valNum"
+            android:textSize="25sp" />
+
+    </TableRow>
+
+</TableLayout>

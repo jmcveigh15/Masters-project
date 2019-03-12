@@ -13,4 +13,16 @@
     <string name="forum_comment_hint">Enter a comment</string>
 
     <string name="new_forum">New Forum</string>
+
+    <string name="clubCol">Team</string>
+    <string name="pointsCol">PTS</string>
+    <string name="playedCol">PLD</string>
+    <string name="WonCol">W</string>
+    <string name="DrawnCol">D</string>
+    <string name="LostCol">L</string>
+    <string name="scoredCol">+</string>
+    <string name="conCol">-</string>
+    <string name="diffCol">+/-</string>
+    <string name="club">club</string>
+    <string name="valNum">x</string>
 </resources>
