@@ -25,4 +25,9 @@
     <string name="diffCol">+/-</string>
     <string name="club">club</string>
     <string name="valNum">x</string>
+
+    <!--Results sending strings-->
+    <string name="send_result">Send Result</string>
+    <string name="result_instructions">Please send the result of your match to the league contact</string>
+
 </resources>
