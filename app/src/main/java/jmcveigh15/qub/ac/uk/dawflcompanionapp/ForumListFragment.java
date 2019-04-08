@@ -1,5 +1,6 @@
 package jmcveigh15.qub.ac.uk.dawflcompanionapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -22,6 +23,7 @@ public class ForumListFragment extends Fragment {
 
     private RecyclerView mForumRecyclerView;
     private ForumCommentAdapter mAdapter;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

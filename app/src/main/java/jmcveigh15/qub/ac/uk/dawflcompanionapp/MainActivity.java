@@ -6,13 +6,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private Button mSendResultsButton;
+    private Button mTablesButton;
+    private Button mResultsButton;
+    private Button mFixturesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // this starts the pitch locations activity, need to attach a button to it
+        startActivity(new Intent(this, MapsActivity.class));
 
 
         // this sets the send result button
@@ -27,6 +33,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        mTablesButton = (Button) findViewById(R.id.tables_button);
+
+
+    }
+
+    @Override
+    public void onClick(View v) {
 
     }
 }

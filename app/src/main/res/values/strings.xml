@@ -14,7 +14,13 @@
 
     <string name="new_forum">New Forum</string>
 
-    <string name="clubCol">Team</string>
+
+    <!--Results sending strings-->
+    <string name="send_result">Send Result</string>
+    <string name="result_instructions">Please send the result of your match to the league contact</string>
+
+    <!--Column heading strings -->
+    <string name="clubCol">TEAM</string>
     <string name="pointsCol">PTS</string>
     <string name="playedCol">PLD</string>
     <string name="WonCol">W</string>
@@ -23,11 +29,12 @@
     <string name="scoredCol">+</string>
     <string name="conCol">-</string>
     <string name="diffCol">+/-</string>
+
+    <!--Row placeholder strings -->
     <string name="club">club</string>
     <string name="valNum">x</string>
-
-    <!--Results sending strings-->
-    <string name="send_result">Send Result</string>
-    <string name="result_instructions">Please send the result of your match to the league contact</string>
+    <!--Hardcoded due to end of season and less processing from json-->
+    <string name="comments">02 Oct 2018 - Clonduff II deducted 3 points - Misconduct (Rule 13.13.1)</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>
