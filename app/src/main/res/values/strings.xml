@@ -14,6 +14,22 @@
 
     <string name="new_forum">New Forum</string>
 
+    <!-- Strings for logins and register feature-->
+    <string name="register">Register/Login</string>
+    <string name="sign_in">Already have an account? Log in here</string>
+    <string name="register_here">"Don't have an account? Sign up here"</string>
+    <string name="password_hint">Enter your password</string>
+    <string name="email_hint">Enter your email</string>
+    <string name="register_user">Sign Up</string>
+    <string name="log_in_user">Log In</string>
+
+    <string name="profile_camera_textView">Click here to choose your profile picture</string>
+    <string name="profile_enter_name">Enter display name</string>
+    <string name="save">Save</string>
+
+
+
+    <string name="pitch_locations">Pitch Locations</string>
 
     <!--Results sending strings-->
     <string name="send_result">Send Result</string>
@@ -33,6 +49,7 @@
     <!--Row placeholder strings -->
     <string name="club">club</string>
     <string name="valNum">x</string>
+
     <!--Hardcoded due to end of season and less processing from json-->
     <string name="comments">02 Oct 2018 - Clonduff II deducted 3 points - Misconduct (Rule 13.13.1)</string>
     <string name="title_activity_maps">Map</string>

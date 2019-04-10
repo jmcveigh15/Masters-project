@@ -17,6 +17,22 @@
         android:contentDescription="@string/logo_description"
         android:src="@drawable/logo" />
 
+    <!--Register button-->
+    <Button
+        android:id="@+id/register_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/maps_id"
+        android:text="@string/register"/>
+
+    <!--Maps button-->
+    <Button
+        android:id="@+id/maps_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/send_result"
+        android:text="@string/pitch_locations" />
+
     <!--This button is the send result button
      It is only visible by users logged in as team admin-->
     <Button

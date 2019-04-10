@@ -26,6 +26,12 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"></activity>
+        <activity android:name=".Reserve1Table"/>
+        <activity android:name=".Register"/>
+        <activity android:name=".Login"/>
+        <activity android:name=".Profile"/>
+
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

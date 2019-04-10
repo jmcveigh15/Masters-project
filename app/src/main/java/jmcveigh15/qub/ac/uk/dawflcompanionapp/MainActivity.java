@@ -6,20 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button mSendResultsButton;
-    private Button mTablesButton;
-    private Button mResultsButton;
-    private Button mFixturesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // this starts the pitch locations activity, need to attach a button to it
-        startActivity(new Intent(this, MapsActivity.class));
-
 
         // this sets the send result button
         // only users logged in as team admin can see this button
@@ -34,21 +27,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        mTablesButton = (Button) findViewById(R.id.tables_button);
-
+        findViewById(R.id.tables_button).setOnClickListener(this);
+        findViewById(R.id.maps_id).setOnClickListener(this);
+        findViewById(R.id.register_id).setOnClickListener(this);
 
     }
 
     @Override
-    public void onClick(View v) {
-
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.maps_id:
+                startActivity(new Intent(this, MapsActivity.class));
+                break;
+            case R.id.tables_button:
+                startActivity(new Intent(MainActivity.this, Reserve1Table.class));
+                break;
+            case R.id.register_id:
+                startActivity(new Intent(this, Register.class));
+                break;
+        }
     }
 }
 
 // toolbar at the bottom with links to the fixtures, results, tables and cups
 // side toolbar for other links
 // middle of page should be pulled from database
-
-
-// Need to connect qub database to android studio for logins, gallery, forum etc
-// Need to figure out how to parse to a table from json
