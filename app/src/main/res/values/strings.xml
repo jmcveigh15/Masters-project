@@ -26,6 +26,9 @@
     <string name="profile_camera_textView">Click here to choose your profile picture</string>
     <string name="profile_enter_name">Enter display name</string>
     <string name="save">Save</string>
+    <string name="verified">Verified</string>
+    <string name="profile_pic_description">This is the user profile picture</string>
+    <string name="profile">Profile</string>
 
 
 

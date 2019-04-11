@@ -8,11 +8,17 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
+
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,6 +37,7 @@ import java.io.IOException;
 public class Profile extends AppCompatActivity {
 
     private static final int CHOOSE_IMAGE = 0;
+    TextView mTextView;
     ImageView mImageView;
     EditText mEditText;
     Uri mUriProfileImage;
@@ -45,11 +52,15 @@ public class Profile extends AppCompatActivity {
 
         mFirebaseAuth = FirebaseAuth.getInstance();
 
+        Toolbar mToolBar = findViewById(R.id.toolbar);
+        setSupportActionBar(mToolBar);
+
         mEditText = findViewById(R.id.editTextDisplayName);
-        mImageView = findViewById(R.id.profile_ImageView);
         mProgressBar = findViewById(R.id.profile_progress_bar);
+        mTextView = findViewById(R.id.textViewVerified);
+        mImageView = findViewById(R.id.profile_ImageView);
 
-
+        // once the image is clicked, the user can choose an image to upload
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +70,7 @@ public class Profile extends AppCompatActivity {
 
         loadUserInfo();
 
+        // when the save button is clicked the user's pic and displayname is saved
         findViewById(R.id.buttonSave).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,18 +79,19 @@ public class Profile extends AppCompatActivity {
         });
     }
 
+    // if user is not logged in, go to log in screen
     @Override
     protected void onStart() {
         super.onStart();
-        // if user is not logged in, go to log in screen
         if (mFirebaseAuth.getCurrentUser() == null) {
             finish();
             startActivity(new Intent(Profile.this, Login.class));
         }
     }
 
+    // this loads the user's information from Firebase
     private void loadUserInfo() {
-        FirebaseUser user = mFirebaseAuth.getCurrentUser();
+        final FirebaseUser user = mFirebaseAuth.getCurrentUser();
 
         if (user != null) {
             if (user.getPhotoUrl() != null) {
@@ -89,10 +102,31 @@ public class Profile extends AppCompatActivity {
             if (user.getDisplayName() != null) {
                 mEditText.setText(user.getDisplayName());
             }
-        }
 
+            // checking if user is verified and showing this
+            if (user.isEmailVerified()) {
+                mTextView.setText("Email Verified");
+                // if user is not verified, show this and give option to verify
+            } else {
+                mTextView.setText("Email Not Verified (Click To Verify)");
+                mTextView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // this sends the verification email
+                        user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                // if the email was sent it tells the user
+                                Toast.makeText(Profile.this, "Verification Email Sent", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                });
+            }
+        }
     }
 
+    // this allows the user's information to be updated
     private void saveUserInfo() {
         String displayName = mEditText.getText().toString();
 
@@ -119,9 +153,9 @@ public class Profile extends AppCompatActivity {
                         }
                     });
         }
-
     }
 
+    // this method ensures the image is ok to upload to Firebase server and maps it
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -141,6 +175,7 @@ public class Profile extends AppCompatActivity {
         }
     }
 
+    // this method uploads an image to the Firebase server
     private void uploadImageToFirebaseStorage() {
         final StorageReference profileImageRef = FirebaseStorage.getInstance()
                 .getReference("profilepics/" + System.currentTimeMillis() + ".jpg");
@@ -175,6 +210,33 @@ public class Profile extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.menuLogOut:
+                FirebaseAuth.getInstance().signOut();
+                finish();
+                startActivity(new Intent(Profile.this, MainActivity.class));
+                break;
+            case R.id.menuHome:
+                startActivity(new Intent(Profile.this, MainActivity.class));
+                break;
+        }
+
+        return true;
+    }
+
+    // this allows the user to choose an image to upload
     private void showImageChooser() {
         Intent intent = new Intent();
         intent.setType("image/*");

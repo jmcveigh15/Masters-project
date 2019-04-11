@@ -73,7 +73,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 if(task.isSuccessful()){
                     finish();
                     mProgressBar.setVisibility(View.GONE);
-                    Intent intent = new Intent(Login.this, Profile.class);
+                    Intent intent = new Intent(Login.this, MainActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 }else {
@@ -90,7 +90,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         // if user is logged in, go to profile screen
         if(mFirebaseAuth.getCurrentUser()!=null){
             finish();
-            startActivity(new Intent(this, Profile.class));
+            startActivity(new Intent(this, MainActivity.class));
         }
     }
 

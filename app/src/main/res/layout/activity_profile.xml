@@ -4,8 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="15dp"
     tools:context=".Profile">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary" />
 
     <TextView
         android:layout_width="match_parent"
@@ -28,12 +33,12 @@
             android:scaleType="centerCrop" />
 
         <ProgressBar
-            android:visibility="gone"
             android:id="@+id/profile_progress_bar"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone" />
     </RelativeLayout>
 
     <EditText
@@ -41,6 +46,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/profile_enter_name" />
+
+    <TextView
+        android:id="@+id/textViewVerified"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/verified"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
     <Button
         android:id="@+id/buttonSave"
@@ -52,5 +64,6 @@
         android:paddingRight="55dp"
         android:text="@string/save"
         android:textAllCaps="true" />
+
 
 </LinearLayout>
