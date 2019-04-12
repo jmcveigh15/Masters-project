@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -34,7 +38,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 
-public class Profile extends AppCompatActivity {
+public class Profile extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private static final int CHOOSE_IMAGE = 0;
     TextView mTextView;
@@ -44,16 +48,25 @@ public class Profile extends AppCompatActivity {
     ProgressBar mProgressBar;
     String profileImageUrl;
     FirebaseAuth mFirebaseAuth;
+    private DrawerLayout mDrawerLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        mFirebaseAuth = FirebaseAuth.getInstance();
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        Toolbar mToolBar = findViewById(R.id.toolbar);
-        setSupportActionBar(mToolBar);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.nav_drawer_open, R.string.nav_drawer_close);
+        mDrawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        mFirebaseAuth = FirebaseAuth.getInstance();
 
         mEditText = findViewById(R.id.editTextDisplayName);
         mProgressBar = findViewById(R.id.profile_progress_bar);
@@ -210,37 +223,66 @@ public class Profile extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu, menu);
-
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()){
-            case R.id.menuLogOut:
-                FirebaseAuth.getInstance().signOut();
-                finish();
-                startActivity(new Intent(Profile.this, MainActivity.class));
-                break;
-            case R.id.menuHome:
-                startActivity(new Intent(Profile.this, MainActivity.class));
-                break;
-        }
-
-        return true;
-    }
-
     // this allows the user to choose an image to upload
     private void showImageChooser() {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Select profile image"), CHOOSE_IMAGE);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            mDrawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.nav_log_out:
+                FirebaseAuth.getInstance().signOut();
+                finish();
+                startActivity(new Intent(this, MainActivity.class));
+                Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_free_week:
+                // nothing yet
+                break;
+            case R.id.nav_login_register:
+                if(FirebaseAuth.getInstance().getCurrentUser()==null){
+                    startActivity(new Intent(this, Login.class));
+                } else {
+                    Toast.makeText(this, "Already logged in", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.nav_pitch_location:
+                startActivity(new Intent(this, MapsActivity.class));
+                break;
+            case R.id.nav_send_result:
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(Intent.EXTRA_TEXT, getString(R.string.result_instructions));
+                i = Intent.createChooser(i, getString(R.string.send_result));
+                startActivity(i);
+                break;
+            case R.id.nav_home:
+                startActivity(new Intent(this, MainActivity.class));
+                break;
+            case R.id.nav_profile:
+                if(FirebaseAuth.getInstance().getCurrentUser()==null){
+                    Toast.makeText(this, "Log in or register to view your profile", Toast.LENGTH_SHORT).show();
+                } else {
+                    startActivity(new Intent(this, Profile.class));
+                }
+                break;
+
+        }
+        mDrawerLayout.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

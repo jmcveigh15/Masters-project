@@ -29,10 +29,10 @@
         <activity android:name=".Reserve1Table"/>
         <activity android:name=".Register"/>
         <activity android:name=".Login"/>
-        <activity android:name=".Profile"/>
+        <activity android:name=".Profile" android:theme="@style/AppTheme.NoActionBar"/>
 
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

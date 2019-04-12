@@ -28,6 +28,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
+
         mFirebaseAuth = FirebaseAuth.getInstance();
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
         mEditTextEmail = (EditText) findViewById(R.id.editTextEmail);

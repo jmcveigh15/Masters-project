@@ -1,6 +1,11 @@
 package jmcveigh15.qub.ac.uk.dawflcompanionapp;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -10,16 +15,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.SlidingDrawer;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button mSendResultsButton;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
     private TextView mLoggedInTextView;
-    private Button mRegisterButton;
     private ImageView mUserPicImageView;
+    private DrawerLayout mDrawerLayout;
 
 
     @Override
@@ -27,43 +33,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.nav_drawer_open, R.string.nav_drawer_close);
+        mDrawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+
+
         // this method alters the home page of the app
         // depending whether the user is logged in
         loggedInCheck();
 
-        // this sets the send result button
-        // only users logged in as team admin can see this button
-        mSendResultsButton = (Button) findViewById(R.id.send_result);
-        mSendResultsButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent i = new Intent(Intent.ACTION_SEND);
-                i.setType("text/plain");
-                i.putExtra(Intent.EXTRA_TEXT, getString(R.string.result_instructions));
-                i = Intent.createChooser(i, getString(R.string.send_result));
-                startActivity(i);
-            }
-        });
-
         // on click listeners
         findViewById(R.id.tables_button).setOnClickListener(this);
-        findViewById(R.id.maps_id).setOnClickListener(this);
-        findViewById(R.id.register_id).setOnClickListener(this);
     }
 
 
     private void loggedInCheck() {
         // if user is logged in show displayName
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {
-            // nothing here
-            // cannot be !=null with empty else statement
-            //  or app crashes with NPE
+            // if user is not logged in
+            // set register/login button in nav bar as visible
         } else {
             // displays logged in message
             String displayName = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
             mLoggedInTextView = (TextView) findViewById(R.id.logged_in);
-            mLoggedInTextView.setText("Welcome " + displayName);
+            mLoggedInTextView.setText(displayName);
             mLoggedInTextView.setVisibility(View.VISIBLE);
-            // displays pic nex to display name
+
+            // displays pic next to display name
             if (FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl().toString() != null) {
                 mUserPicImageView = (ImageView) findViewById(R.id.user_pic_id);
                 Glide.with(MainActivity.this)
@@ -73,10 +77,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // this makes the user's pic a clickable link to the edit profile page
                 mUserPicImageView.setOnClickListener(this);
             }
-
-            // hide log in button when logged in
-            mRegisterButton = (Button) findViewById(R.id.register_id);
-            mRegisterButton.setVisibility(View.GONE);
         }
     }
 
@@ -85,18 +85,68 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.maps_id:
-                startActivity(new Intent(this, MapsActivity.class));
-                break;
             case R.id.tables_button:
                 startActivity(new Intent(MainActivity.this, Reserve1Table.class));
-                break;
-            case R.id.register_id:
-                startActivity(new Intent(this, Register.class));
                 break;
             case R.id.user_pic_id:
                 startActivity(new Intent(this, Profile.class));
                 break;
+        }
+    }
+
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.nav_log_out:
+                FirebaseAuth.getInstance().signOut();
+                finish();
+                startActivity(new Intent(this, MainActivity.class));
+                Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_free_week:
+                // nothing yet
+                break;
+            case R.id.nav_login_register:
+                if(FirebaseAuth.getInstance().getCurrentUser()==null){
+                    startActivity(new Intent(this, Login.class));
+                } else {
+                    Toast.makeText(this, "Already logged in", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.nav_pitch_location:
+                startActivity(new Intent(this, MapsActivity.class));
+                break;
+            case R.id.nav_send_result:
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(Intent.EXTRA_TEXT, getString(R.string.result_instructions));
+                i = Intent.createChooser(i, getString(R.string.send_result));
+                startActivity(i);
+                break;
+            case R.id.nav_home:
+                startActivity(new Intent(this, MainActivity.class));
+                break;
+            case R.id.nav_profile:
+                if(FirebaseAuth.getInstance().getCurrentUser()==null){
+                    Toast.makeText(this, "Log in or register to view your profile", Toast.LENGTH_SHORT).show();
+                } else {
+                    startActivity(new Intent(this, Profile.class));
+                }
+                break;
+
+        }
+        mDrawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            mDrawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
         }
     }
 }
