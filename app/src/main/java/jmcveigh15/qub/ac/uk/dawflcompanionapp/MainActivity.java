@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nav_free_week:
-                // nothing yet
+                startActivity(new Intent(this, FreeWeek.class));
                 break;
             case R.id.nav_login_register:
                 if(FirebaseAuth.getInstance().getCurrentUser()==null){
@@ -135,8 +135,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(new Intent(this, Profile.class));
                 }
                 break;
-
+            case R.id.nav_forums:
+                startActivity(new Intent(this, ForumMain.class));
+                break;
         }
+
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }

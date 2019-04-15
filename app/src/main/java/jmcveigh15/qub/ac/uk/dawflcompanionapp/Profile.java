@@ -251,7 +251,8 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
                 Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nav_free_week:
-                // nothing yet
+                startActivity(new Intent(this, FreeWeek.class));
+                finish();
                 break;
             case R.id.nav_login_register:
                 if(FirebaseAuth.getInstance().getCurrentUser()==null){
@@ -279,6 +280,10 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
                 } else {
                     startActivity(new Intent(this, Profile.class));
                 }
+                break;
+            case R.id.nav_forums:
+                startActivity(new Intent(this, ForumMain.class));
+                finish();
                 break;
 
         }

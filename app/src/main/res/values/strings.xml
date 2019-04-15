@@ -11,7 +11,7 @@
     <string name="results_description">This is a link to the results section</string>
 
     <string name="forum_comment_hint">Enter a comment</string>
-
+    <string name="choose_forum">Choose a forum, you must be logged in to comment</string>
     <string name="new_forum">New Forum</string>
 
     <!-- Strings for logins and register feature-->
