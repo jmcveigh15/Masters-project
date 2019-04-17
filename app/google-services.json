@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "72258743629",
+    "firebase_url": "https://dawfl-2dc37.firebaseio.com",
+    "project_id": "dawfl-2dc37",
+    "storage_bucket": "dawfl-2dc37.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:72258743629:android:0536a73035245cc2",
+        "android_client_info": {
+          "package_name": "jmcveigh15.qub.ac.uk.dawflcompanionapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "72258743629-g7gdummrhhg2761nqhcam4o3pj4q001j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jmcveigh15.qub.ac.uk.dawflcompanionapp",
+            "certificate_hash": "7fca8fce69f16031c83674ac3bf2f14e0a6f5e22"
+          }
+        },
+        {
+          "client_id": "72258743629-16n90j0hsl9cfu2oskd30u3hk0o73rcf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1yy1i8Jogsz9SrCIhrlOJFBUMBwX632s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "72258743629-16n90j0hsl9cfu2oskd30u3hk0o73rcf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

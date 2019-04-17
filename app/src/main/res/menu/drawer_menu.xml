@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_login_register"
+            android:icon="@drawable/ic_login_register"
+            android:title="Login or Register" />
+        <item
+            android:id="@+id/nav_pitch_location"
+            android:icon="@drawable/ic_location"
+            android:title="Pitch Locations" />
+        <item
+            android:id="@+id/nav_forums"
+            android:icon="@drawable/ic_forum"
+            android:title="Forum" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@android:drawable/ic_menu_camera"
+            android:title="Gallery" />
+        <item
+            android:id="@+id/nav_free_week"
+            android:icon="@drawable/ic_free_week"
+            android:title="Free Week Information" />
+        <item
+            android:id="@+id/nav_send_result"
+            android:icon="@drawable/ic_message"
+            android:title="Send Results" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_profile"
+            android:title="Profile" />
+        <item
+            android:id="@+id/nav_log_out"
+            android:icon="@drawable/ic_log_out"
+            android:title="Log Out" />
+    </group>
+</menu>
