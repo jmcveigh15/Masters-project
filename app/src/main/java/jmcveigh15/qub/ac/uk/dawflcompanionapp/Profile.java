@@ -285,6 +285,10 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
                 startActivity(new Intent(this, ForumMain.class));
                 finish();
                 break;
+            case R.id.nav_gallery:
+                startActivity(new Intent(this, GalleryMain.class));
+                finish();
+                break;
 
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);

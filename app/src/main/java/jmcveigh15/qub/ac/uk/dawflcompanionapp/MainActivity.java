@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         toggle.syncState();
 
 
-
         // this method alters the home page of the app
         // depending whether the user is logged in
         loggedInCheck();
@@ -56,10 +55,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private void loggedInCheck() {
-        // if user is logged in show displayName
-        if (FirebaseAuth.getInstance().getCurrentUser() == null) {
-            // if user is not logged in
-            // set register/login button in nav bar as visible
+        // check if user is logged in, has display name and has profile pic
+        if (FirebaseAuth.getInstance().getCurrentUser() == null
+                || FirebaseAuth.getInstance().getCurrentUser().getDisplayName() == null
+                || FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl() == null) {
+
+
+            if(FirebaseAuth.getInstance().getCurrentUser()==null){
+                Toast.makeText(getApplicationContext(), "Welcome to the DAWFL Companion App", Toast.LENGTH_LONG).show();
+            } else if (FirebaseAuth.getInstance().getCurrentUser().getDisplayName()==null||FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl()==null){
+                Toast.makeText(getApplicationContext(), "Please finish registration by clicking 'Profile'", Toast.LENGTH_SHORT).show();
+            }
+            // if user is not logged in, has no photo or displayname do not show logged in message
         } else {
             // displays logged in message
             String displayName = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
@@ -68,12 +75,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mLoggedInTextView.setVisibility(View.VISIBLE);
 
             // displays pic next to display name
+            // if the current user's image is not null set it in the imageview next to the displayname
             if (FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl().toString() != null) {
                 mUserPicImageView = (ImageView) findViewById(R.id.user_pic_id);
                 Glide.with(MainActivity.this)
                         .load(FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl().toString())
                         .into(mUserPicImageView);
                 mUserPicImageView.setVisibility(View.VISIBLE);
+
                 // this makes the user's pic a clickable link to the edit profile page
                 mUserPicImageView.setOnClickListener(this);
             }
@@ -95,7 +104,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
@@ -108,8 +116,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.nav_free_week:
                 startActivity(new Intent(this, FreeWeek.class));
                 break;
+            case R.id.nav_gallery:
+                startActivity(new Intent(this, GalleryMain.class));
+                break;
             case R.id.nav_login_register:
-                if(FirebaseAuth.getInstance().getCurrentUser()==null){
+                if (FirebaseAuth.getInstance().getCurrentUser() == null) {
                     startActivity(new Intent(this, Login.class));
                 } else {
                     Toast.makeText(this, "Already logged in", Toast.LENGTH_SHORT).show();
@@ -129,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, MainActivity.class));
                 break;
             case R.id.nav_profile:
-                if(FirebaseAuth.getInstance().getCurrentUser()==null){
+                if (FirebaseAuth.getInstance().getCurrentUser() == null) {
                     Toast.makeText(this, "Log in or register to view your profile", Toast.LENGTH_SHORT).show();
                 } else {
                     startActivity(new Intent(this, Profile.class));
