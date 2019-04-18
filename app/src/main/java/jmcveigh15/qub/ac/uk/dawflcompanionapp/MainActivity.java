@@ -9,13 +9,9 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.SlidingDrawer;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // on click listeners
         findViewById(R.id.tables_button).setOnClickListener(this);
+        findViewById(R.id.fixtures_button).setOnClickListener(this);
     }
 
 
@@ -96,6 +93,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.tables_button:
                 startActivity(new Intent(MainActivity.this, Reserve1Table.class));
+                break;
+            case R.id.fixtures_button:
+                startActivity(new Intent(MainActivity.this, R2Fixtures.class));
                 break;
             case R.id.user_pic_id:
                 startActivity(new Intent(this, Profile.class));

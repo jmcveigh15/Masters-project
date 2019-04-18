@@ -60,4 +60,15 @@
     <string name="nav_drawer_open">Open Navigation Drawer</string>
     <string name="nav_drawer_close">Close Navigation Drawer</string>
 
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="april_20th">20/04</string>
+    <string name="april_24th">24/04</string>
+    <string name="april_27th">27/04</string>
+    <string name="may_1st">01/05</string>
+    <string name="home_team">Home</string>
+    <string name="away_team">Away</string>
+    <string name="venue">Venue</string>
+    <string name="time_comments">All Saturday matches have 14:30 kick off time, mid-week matches are 18:30</string>
+
 </resources>

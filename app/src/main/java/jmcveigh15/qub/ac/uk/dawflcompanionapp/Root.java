@@ -5,11 +5,11 @@ import java.util.List;
 // this class is used with the Gson library
 // to convert json data from the internet to java objects
 // the hierarchy is root - data - leagueTable
-class Root {
+public class Root {
     Data data;
 }
 
-public class Data {
+class Data {
     List<LeagueTable> leagueTable;
 
     public Data(List<LeagueTable> leagueTable) {
@@ -41,7 +41,6 @@ public class Data {
             this.goalsDifference = goalsDifference;
             this.points = points;
         }
-
     }
 
 

@@ -8,9 +8,6 @@ import android.widget.TextView;
 // it shows parsed json data in a table using updated textViews
 public class Reserve1Table extends AppCompatActivity implements Fetch.AsyncResponse {
 
-    // comments textView
-    private TextView comments;
-
     // team name textViews
     private TextView team1nameTextView, team2nameTextView, team3nameTextView, team4nameTextView, team5nameTextView, team6nameTextView, team7nameTextView, team8nameTextView, team9nameTextView;
 
@@ -18,26 +15,25 @@ public class Reserve1Table extends AppCompatActivity implements Fetch.AsyncRespo
     private TextView team1playedTextView, team2playedTextView, team3playedTextView, team4playedTextView, team5playedTextView, team6playedTextView, team7playedTextView, team8playedTextView, team9playedTextView;
 
     // games won textViews
-    private TextView team1wonTextView,team2wonTextView,team3wonTextView,team4wonTextView,team5wonTextView,team6wonTextView,team7wonTextView,team8wonTextView,team9wonTextView;
+    private TextView team1wonTextView, team2wonTextView, team3wonTextView, team4wonTextView, team5wonTextView, team6wonTextView, team7wonTextView, team8wonTextView, team9wonTextView;
 
     // games drawn textViews;
-    private TextView team1drawnTextView,team2drawnTextView,team3drawnTextView,team4drawnTextView,team5drawnTextView,team6drawnTextView,team7drawnTextView,team8drawnTextView,team9drawnTextView;
+    private TextView team1drawnTextView, team2drawnTextView, team3drawnTextView, team4drawnTextView, team5drawnTextView, team6drawnTextView, team7drawnTextView, team8drawnTextView, team9drawnTextView;
 
     // games lost textViews
-    private TextView team1lostTextView,team2lostTextView,team3lostTextView,team4lostTextView,team5lostTextView,team6lostTextView,team7lostTextView,team8lostTextView,team9lostTextView;
+    private TextView team1lostTextView, team2lostTextView, team3lostTextView, team4lostTextView, team5lostTextView, team6lostTextView, team7lostTextView, team8lostTextView, team9lostTextView;
 
     // goals for textViews
-    private TextView team1goalsForTextView,team2goalsForTextView,team3goalsForTextView,team4goalsForTextView,team5goalsForTextView,team6goalsForTextView,team7goalsForTextView,team8goalsForTextView,team9goalsForTextView;
+    private TextView team1goalsForTextView, team2goalsForTextView, team3goalsForTextView, team4goalsForTextView, team5goalsForTextView, team6goalsForTextView, team7goalsForTextView, team8goalsForTextView, team9goalsForTextView;
 
     // goals against textViews
-    private TextView team1goalsAgainstTextView,team2goalsAgainstTextView,team3goalsAgainstTextView,team4goalsAgainstTextView,team5goalsAgainstTextView,team6goalsAgainstTextView,team7goalsAgainstTextView,team8goalsAgainstTextView,team9goalsAgainstTextView;
+    private TextView team1goalsAgainstTextView, team2goalsAgainstTextView, team3goalsAgainstTextView, team4goalsAgainstTextView, team5goalsAgainstTextView, team6goalsAgainstTextView, team7goalsAgainstTextView, team8goalsAgainstTextView, team9goalsAgainstTextView;
 
     // goal difference textViews
-    private TextView team1goalDifferenceTextView,team2goalDifferenceTextView,team3goalDifferenceTextView,team4goalDifferenceTextView,team5goalDifferenceTextView,team6goalDifferenceTextView,team7goalDifferenceTextView,team8goalDifferenceTextView,team9goalDifferenceTextView;
+    private TextView team1goalDifferenceTextView, team2goalDifferenceTextView, team3goalDifferenceTextView, team4goalDifferenceTextView, team5goalDifferenceTextView, team6goalDifferenceTextView, team7goalDifferenceTextView, team8goalDifferenceTextView, team9goalDifferenceTextView;
 
     // points textViews
-    private TextView team1PointsTextView,team2PointsTextView,team3PointsTextView,team4PointsTextView,team5PointsTextView,team6PointsTextView,team7PointsTextView,team8PointsTextView,team9PointsTextView;
-
+    private TextView team1PointsTextView, team2PointsTextView, team3PointsTextView, team4PointsTextView, team5PointsTextView, team6PointsTextView, team7PointsTextView, team8PointsTextView, team9PointsTextView;
 
 
     @Override
@@ -47,8 +43,6 @@ public class Reserve1Table extends AppCompatActivity implements Fetch.AsyncRespo
         setContentView(R.layout.activity_table);
         // this executes the doInBackGround async activity to retrieve json data and parse it
         new Fetch(this).execute();
-
-
     }
 
     // this override brings the converted json to this activity
@@ -237,8 +231,6 @@ public class Reserve1Table extends AppCompatActivity implements Fetch.AsyncRespo
         team9PointsTextView.setText(ar[80]);
 
     }
-
-
 }
 
 

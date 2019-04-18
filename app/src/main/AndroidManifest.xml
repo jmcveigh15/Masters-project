@@ -28,6 +28,11 @@
             android:label="@string/title_activity_maps"/>
         <activity android:name=".Reserve1Table"/>
         <activity android:name=".Register"/>
+        <activity android:name=".PremFixtures"/>
+        <activity android:name=".D1Fixtures"/>
+        <activity android:name=".D2Fixtures"/>
+        <activity android:name=".R1Fixtures"/>
+        <activity android:name=".R2Fixtures"/>
         <activity android:name=".Login"/>
         <activity android:name=".ForumMain" android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".GalleryMain" android:theme="@style/AppTheme.NoActionBar"/>

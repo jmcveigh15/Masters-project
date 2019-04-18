@@ -156,7 +156,7 @@ public class Fetch extends AsyncTask<Void, Void, String[]> {
         return ar;
     }
 
-    public Fetch(AsyncResponse delegate) {
+    Fetch(AsyncResponse delegate) {
         this.delegate = delegate;
     }
 

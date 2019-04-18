@@ -6,6 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".Reserve1Table">
 
+    <TextView
+        android:paddingLeft="5dp"
+        android:text="Reserve 1 Table"
+        android:textStyle="bold" />
+
     <TableRow
         android:gravity="center">
 
