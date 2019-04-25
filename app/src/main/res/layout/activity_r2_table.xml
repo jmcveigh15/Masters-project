@@ -1,0 +1,837 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".Profile">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:elevation="4dp"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".Reserve2Table"
+    android:shrinkColumns="*"
+    android:fitsSystemWindows="true"
+    android:layout_below="@+id/toolbar">
+
+    <TextView
+        android:paddingLeft="5dp"
+        android:text="Reserve 2 Table"
+        android:textStyle="bold" />
+
+    <TableRow
+        android:gravity="center">
+
+        <!--Team column  -->
+        <TextView android:text="@string/clubCol"
+            android:background="@drawable/border"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:padding="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"/>
+
+        <!-- Played column -->
+        <TextView android:text="@string/playedCol"
+            android:gravity="center"
+            android:background="@drawable/border"
+            android:padding="5dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            />
+
+        <!-- Won column -->
+        <TextView
+            android:gravity="center"
+            android:text="@string/WonCol"
+            android:background="@drawable/border"
+            android:padding="5dp"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+
+        <!-- Drawn column -->
+        <TextView android:text="@string/DrawnCol"
+            android:gravity="center"
+            android:background="@drawable/border"
+            android:padding="5dp"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+
+        <!-- Lost column -->
+        <TextView android:text="@string/LostCol"
+            android:gravity="center"
+            android:background="@drawable/border"
+            android:padding="5dp"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+
+        <!-- Goals for column -->
+        <TextView android:text="@string/scoredCol"
+            android:gravity="center"
+            android:background="@drawable/border"
+            android:padding="5dp"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+
+        <!-- Goals against column -->
+        <TextView android:text="@string/conCol"
+            android:gravity="center"
+            android:background="@drawable/border"
+            android:padding="5dp"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+
+        <!-- Goal difference column -->
+        <TextView
+            android:gravity="center"
+            android:background="@drawable/border"
+            android:padding="5dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:text="@string/diffCol"
+
+            />
+
+        <!-- Points column -->
+        <TextView
+            android:gravity="center"
+            android:background="@drawable/border"
+            android:padding="5dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:text="@string/pointsCol"
+
+            />
+    </TableRow>
+
+    <TableRow
+        android:gravity="center"
+        >
+
+        <!-- Team 1 name -->
+        <TextView
+            android:padding="5dp"
+            android:id="@+id/team_1_name_id"
+            android:text="@string/club"
+            android:background="@drawable/border"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            />
+
+        <!-- Team 1 played -->
+        <TextView
+            android:id="@+id/team_1_played_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 1 won -->
+        <TextView
+            android:id="@+id/team_1_won_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 1 drawn -->
+        <TextView
+            android:id="@+id/team_1_drawn_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 1 lost -->
+        <TextView
+            android:id="@+id/team_1_lost_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 1 goals for -->
+        <TextView
+            android:id="@+id/team_1_goalsF_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 1 goals against -->
+        <TextView
+            android:id="@+id/team_1_goalsA_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 1 goal difference -->
+        <TextView
+            android:id="@+id/team_1_goalD_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 1 points -->
+        <TextView
+            android:id="@+id/team_1_points_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+    </TableRow>
+
+    <TableRow android:gravity="center">
+
+        <!-- Team 2 name -->
+        <TextView
+            android:background="@drawable/border"
+            android:id="@+id/team_2_name_id"
+            android:padding="5dp"
+            android:text="@string/club"
+            android:layout_width="0dp"
+            android:layout_weight="1"/>
+
+        <!-- Team 2 played -->
+        <TextView
+            android:id="@+id/team_2_played_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 2 won -->
+        <TextView
+            android:id="@+id/team_2_won_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 2 drawn -->
+        <TextView
+            android:id="@+id/team_2_drawn_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 2 lost -->
+        <TextView
+            android:id="@+id/team_2_lost_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 2 goals for -->
+        <TextView
+            android:id="@+id/team_2_goalsF_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 2 goals against -->
+        <TextView
+            android:id="@+id/team_2_goalsA_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 2 goal difference -->
+        <TextView
+            android:id="@+id/team_2_goalD_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 2 points -->
+        <TextView
+            android:id="@+id/team_2_points_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+    </TableRow>
+
+    <TableRow
+        android:gravity="center">
+
+        <!-- Team 3 name -->
+        <TextView
+            android:background="@drawable/border"
+            android:padding="5dp"
+            android:id="@+id/team_3_name_id"
+            android:text="@string/club"
+            android:layout_width="0dp"
+            android:layout_weight="1"/>
+
+        <!-- Team 3 played -->
+        <TextView
+            android:id="@+id/team_3_played_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 3 won -->
+        <TextView
+            android:id="@+id/team_3_won_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 3 drawn -->
+        <TextView
+            android:id="@+id/team_3_drawn_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 3 lost -->
+        <TextView
+            android:id="@+id/team_3_lost_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 3 goals for -->
+        <TextView
+            android:id="@+id/team_3_goalsF_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 3 goals against -->
+        <TextView
+            android:id="@+id/team_3_goalsA_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 3 goal difference -->
+        <TextView
+            android:id="@+id/team_3_goalD_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 3 points -->
+        <TextView
+            android:id="@+id/team_3_points_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+    </TableRow>
+
+    <TableRow android:gravity="center">
+
+        <!-- Team 4 name -->
+        <TextView
+            android:background="@drawable/border"
+            android:id="@+id/team_4_name_id"
+            android:padding="5dp"
+            android:text="@string/club"
+            android:layout_width="0dp"
+            android:layout_weight="1"/>
+
+        <!-- Team 4 played -->
+        <TextView
+            android:id="@+id/team_4_played_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 4 won -->
+        <TextView
+            android:id="@+id/team_4_won_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 4 drawn -->
+        <TextView
+            android:id="@+id/team_4_drawn_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 4 lost -->
+        <TextView
+            android:id="@+id/team_4_lost_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 4 goals for -->
+        <TextView
+            android:id="@+id/team_4_goalsF_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 4 goals against -->
+        <TextView
+            android:id="@+id/team_4_goalsA_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 4 goal difference -->
+        <TextView
+            android:id="@+id/team_4_goalD_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 4 points -->
+        <TextView
+            android:id="@+id/team_4_points_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+    </TableRow>
+
+    <!-- row 5 -->
+    <TableRow
+        android:gravity="center">
+
+        <!-- Team 5 name -->
+        <TextView
+            android:background="@drawable/border"
+            android:padding="5dp"
+            android:id="@+id/team_5_name_id"
+            android:text="@string/club"
+            android:layout_width="0dp"
+            android:layout_weight="1"/>
+
+        <!-- Team 5 played -->
+        <TextView
+            android:id="@+id/team_5_played_id"
+            android:text="@string/valNum"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"/>
+
+        <!-- Team 5 won -->
+        <TextView
+            android:id="@+id/team_5_won_id"
+            android:text="@string/valNum"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"/>
+
+        <!-- Team 5 drawn -->
+        <TextView
+            android:id="@+id/team_5_drawn_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 5 lost -->
+        <TextView
+            android:id="@+id/team_5_lost_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 5 goals for -->
+        <TextView
+            android:id="@+id/team_5_goalsF_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 5 goals against -->
+        <TextView
+            android:id="@+id/team_5_goalsA_id"
+            android:text="@string/valNum"
+            android:padding="5dp"
+            android:background="@drawable/border"
+            android:gravity="center"/>
+
+        <!-- Team 5 goal difference -->
+        <TextView
+            android:id="@+id/team_5_goalD_id"
+            android:text="@string/valNum"
+            android:gravity="center"
+            android:background="@drawable/border"
+            android:padding="5dp"/>
+
+        <!-- Team 5 points -->
+        <TextView
+            android:id="@+id/team_5_points_id"
+            android:text="@string/valNum"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"/>
+    </TableRow>
+
+    <!-- row 6 -->
+    <TableRow
+        android:gravity="center">
+
+        <!-- Team 6 name -->
+        <TextView
+            android:background="@drawable/border"
+            android:id="@+id/team_6_name_id"
+            android:padding="5dp"
+            android:text="@string/club"
+            android:layout_width="0dp"
+            android:layout_weight="1"/>
+
+        <!-- Team 6 played -->
+        <TextView
+            android:id="@+id/team_6_played_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 6 won -->
+        <TextView
+            android:id="@+id/team_6_won_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 6 drawn -->
+        <TextView
+            android:id="@+id/team_6_drawn_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 6 lost -->
+        <TextView
+            android:id="@+id/team_6_lost_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 6 goals for -->
+        <TextView
+            android:id="@+id/team_6_goalsF_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 6 goals against -->
+        <TextView
+            android:id="@+id/team_6_goalsA_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 6 goal difference -->
+        <TextView
+            android:id="@+id/team_6_goalD_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 6 points -->
+        <TextView
+            android:id="@+id/team_6_points_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+    </TableRow>
+
+    <!-- row 7 -->
+    <TableRow
+        android:gravity="center">
+
+        <!-- Team 7 name -->
+        <TextView
+            android:background="@drawable/border"
+            android:padding="5dp"
+            android:id="@+id/team_7_name_id"
+            android:text="@string/club"
+            android:layout_width="0dp"
+            android:layout_weight="1"/>
+
+        <!-- Team 7 played -->
+        <TextView
+            android:id="@+id/team_7_played_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 7 won -->
+        <TextView
+            android:id="@+id/team_7_won_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 7 drawn -->
+        <TextView
+            android:id="@+id/team_7_drawn_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 7 lost -->
+        <TextView
+            android:id="@+id/team_7_lost_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 7 goals for -->
+        <TextView
+            android:id="@+id/team_7_goalsF_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 7 goals against -->
+        <TextView
+            android:id="@+id/team_7_goalsA_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 7 goal difference -->
+        <TextView
+            android:id="@+id/team_7_goalD_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 7 points -->
+        <TextView
+            android:id="@+id/team_7_points_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+    </TableRow>
+
+    <!-- row 8 -->
+    <TableRow
+        android:gravity="center">
+
+        <!-- Team 8 name -->
+        <TextView
+            android:background="@drawable/border"
+            android:padding="5dp"
+            android:id="@+id/team_8_name_id"
+            android:text="@string/club"
+            android:layout_width="0dp"
+            android:layout_weight="1"/>
+
+        <!-- Team 8 played -->
+        <TextView
+            android:id="@+id/team_8_played_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 8 won -->
+        <TextView
+            android:id="@+id/team_8_won_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 8 drawn -->
+        <TextView
+            android:id="@+id/team_8_drawn_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 8 lost -->
+        <TextView
+            android:id="@+id/team_8_lost_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 8 goals for -->
+        <TextView
+            android:id="@+id/team_8_goalsF_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 8 goals against -->
+        <TextView
+            android:id="@+id/team_8_goalsA_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 8 goal difference -->
+        <TextView
+            android:id="@+id/team_8_goalD_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+
+        <!-- Team 8 points -->
+        <TextView
+            android:id="@+id/team_8_points_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/valNum" />
+    </TableRow>
+
+    <!-- Row 9 -->
+    <TableRow
+        android:gravity="center"
+        >
+
+        <!-- Team 9 name -->
+        <TextView
+
+            android:padding="5dp"
+            android:id="@+id/team_9_name_id"
+            android:text="@string/club"
+            android:background="@drawable/border"
+            android:layout_width="0dp"
+            android:layout_weight="1"/>
+
+        <!-- Team 9 played -->
+        <TextView
+            android:id="@+id/team_9_played_id"
+            android:text="@string/valNum"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- Team 9 won -->
+        <TextView android:text="@string/valNum"
+            android:id="@+id/team_9_won_id"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"/>
+
+        <!-- Team 9 drawn -->
+        <TextView
+            android:id="@+id/team_9_drawn_id"
+            android:text="@string/valNum"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"/>
+
+        <!-- Team 9 lost -->
+        <TextView
+            android:id="@+id/team_9_lost_id"
+            android:text="@string/valNum"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"/>
+
+        <!-- Team 9 goals for -->
+        <TextView
+            android:id="@+id/team_9_goalsF_id"
+            android:text="@string/valNum"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"/>
+
+        <!-- Team 9 goals against -->
+        <TextView
+            android:id="@+id/team_9_goalsA_id"
+            android:text="@string/valNum"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"/>
+
+        <!-- Team 9 goal difference -->
+        <TextView
+            android:id="@+id/team_9_goalD_id"
+            android:text="@string/valNum"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"/>
+
+        <!-- Team 9 points -->
+        <TextView
+            android:id="@+id/team_9_points_id"
+            android:text="@string/valNum"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"/>
+    </TableRow>
+
+
+</TableLayout>
+    </RelativeLayout>
+
+<android.support.design.widget.NavigationView
+android:id="@+id/nav_view"
+android:layout_width="wrap_content"
+android:layout_height="match_parent"
+android:layout_gravity="start"
+app:headerLayout="@layout/nav_header"
+app:menu="@menu/drawer_menu" />
+
+    </android.support.v4.widget.DrawerLayout>

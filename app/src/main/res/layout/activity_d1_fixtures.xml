@@ -1,242 +1,255 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".D1Fixtures">
+    tools:context=".Profile">
 
-    <TextView
-        android:paddingLeft="5dp"
-        android:text="Division 1 Fixtures"
-        android:textStyle="bold" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TableRow
-        android:fitsSystemWindows="true"
-        android:gravity="center">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:elevation="4dp"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-        <!--Date column  -->
-        <TextView
-            android:id="@+id/fix_date"
-            android:padding="5dp"
-            android:text="@string/date"
-            android:textSize="12sp"
-            android:textStyle="bold" />
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar"
+            android:fitsSystemWindows="true"
+            tools:context=".D1Fixtures">
 
-        <!-- home team column -->
-        <TextView
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/home_team"
-            android:textSize="12sp"
-            android:textStyle="bold" />
+            <TextView
+                android:paddingLeft="5dp"
+                android:text="Division 1 Fixtures"
+                android:textStyle="bold" />
 
-        <!-- away team column -->
-        <TextView
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/away_team"
-            android:textSize="12sp"
-            android:textStyle="bold" />
+            <TableRow
+                android:fitsSystemWindows="true"
+                android:gravity="center">
 
-        <!-- venue column -->
-        <TextView
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/venue"
-            android:textSize="12sp"
-            android:textStyle="bold" />
+                <!--Date column  -->
+                <TextView
+                    android:id="@+id/fix_date"
+                    android:padding="5dp"
+                    android:text="@string/date"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
+                <!-- home team column -->
+                <TextView
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/home_team"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
-    </TableRow>
+                <!-- away team column -->
+                <TextView
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/away_team"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
-    <TableRow android:gravity="center">
-
-        <!-- Fixture 1 date -->
-        <TextView
-            android:id="@+id/match_date_1"
-            android:padding="5dp"
-            android:text="@string/april_20th"
-            android:textSize="10sp" />
-
-
-        <!-- home Team 1  -->
-        <TextView
-            android:id="@+id/team_1_home"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/valNum"
-            android:textSize="10sp" />
-
-        <!-- away Team 1  -->
-        <TextView
-            android:id="@+id/team_1_away"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/valNum"
-            android:textSize="10sp" />
-
-        <!-- homeTeam 1 venue -->
-        <TextView
-            android:id="@+id/team_1_venue"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/valNum"
-            android:textSize="10sp" />
-
-    </TableRow>
-
-    <TableRow android:gravity="center">
-
-        <!-- Fixture 1 date -->
-        <TextView
-            android:id="@+id/match_date_2"
-            android:padding="5dp"
-            android:text="@string/april_20th"
-            android:textSize="10sp" />
+                <!-- venue column -->
+                <TextView
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/venue"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
 
-        <!-- home team 2 -->
-        <TextView
-            android:id="@+id/team_2_home"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/valNum"
-            android:textSize="10sp" />
+            </TableRow>
 
-        <!-- away team 2 -->
-        <TextView
-            android:id="@+id/team_2_away"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/valNum"
-            android:textSize="10sp" />
+            <TableRow android:gravity="center">
 
-        <!-- team 2 venue -->
-        <TextView
-            android:id="@+id/team_2_venue"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/valNum"
-            android:textSize="10sp" />
-
-    </TableRow>
-
-    <TableRow android:gravity="center">
-
-        <!-- Fixture 3 date -->
-        <TextView
-            android:id="@+id/match_date_3"
-            android:padding="5dp"
-            android:text="@string/april_20th"
-            android:textSize="10sp" />
+                <!-- Fixture 1 date -->
+                <TextView
+                    android:id="@+id/match_date_1"
+                    android:padding="5dp"
+                    android:textSize="10sp" />
 
 
-        <!-- home team 3 -->
-        <TextView
-            android:id="@+id/team_3_home"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/valNum"
-            android:textSize="10sp" />
+                <!-- home Team 1  -->
+                <TextView
+                    android:id="@+id/team_1_home"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textSize="10sp" />
 
-        <!-- away team 3 -->
-        <TextView
-            android:id="@+id/team_3_away"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/valNum"
-            android:textSize="10sp" />
+                <!-- away Team 1  -->
+                <TextView
+                    android:id="@+id/team_1_away"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textSize="10sp" />
 
-        <!-- team 3 venue -->
-        <TextView
-            android:id="@+id/team_3_venue"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/valNum"
-            android:textSize="10sp" />
+                <!-- homeTeam 1 venue -->
+                <TextView
+                    android:id="@+id/team_1_venue"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textSize="10sp" />
 
-    </TableRow>
+            </TableRow>
 
-    <TableRow android:gravity="center">
+            <TableRow android:gravity="center">
 
-        <!-- Fixture 4 date -->
-        <TextView
-            android:id="@+id/match_date_4"
-            android:padding="5dp"
-            android:text="@string/april_20th"
-            android:textSize="10sp" />
+                <!-- Fixture 1 date -->
+                <TextView
+                    android:id="@+id/match_date_2"
+                    android:padding="5dp"
+                    android:textSize="10sp" />
 
 
-        <!-- home team 4 -->
-        <TextView
-            android:id="@+id/team_4_home"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/valNum"
-            android:textSize="10sp" />
+                <!-- home team 2 -->
+                <TextView
+                    android:id="@+id/team_2_home"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textSize="10sp" />
 
-        <!-- away team 4 -->
-        <TextView
-            android:id="@+id/team_4_away"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/valNum"
-            android:textSize="10sp" />
+                <!-- away team 2 -->
+                <TextView
+                    android:id="@+id/team_2_away"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textSize="10sp" />
 
-        <!-- team 4 venue -->
-        <TextView
-            android:id="@+id/team_4_venue"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/valNum"
-            android:textSize="10sp" />
+                <!-- team 2 venue -->
+                <TextView
+                    android:id="@+id/team_2_venue"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textSize="10sp" />
 
-    </TableRow>
+            </TableRow>
 
-    <TableRow android:gravity="center">
+            <TableRow android:gravity="center">
 
-        <!-- Fixture 5 date -->
-        <TextView
-            android:id="@+id/match_date_5"
-            android:padding="5dp"
-            android:text="@string/april_27th"
-            android:textSize="10sp" />
+                <!-- Fixture 3 date -->
+                <TextView
+                    android:id="@+id/match_date_3"
+                    android:padding="5dp"
+                    android:textSize="10sp" />
 
 
-        <!-- home team 5 -->
-        <TextView
-            android:id="@+id/team_5_home"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/valNum"
-            android:textSize="10sp" />
+                <!-- home team 3 -->
+                <TextView
+                    android:id="@+id/team_3_home"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textSize="10sp" />
 
-        <!-- away team 5 -->
-        <TextView
-            android:id="@+id/team_5_away"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/valNum"
-            android:textSize="10sp" />
+                <!-- away team 3 -->
+                <TextView
+                    android:id="@+id/team_3_away"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textSize="10sp" />
 
-        <!-- team 5 venue -->
-        <TextView
-            android:id="@+id/team_5_venue"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/valNum"
-            android:textSize="10sp" />
+                <!-- team 3 venue -->
+                <TextView
+                    android:id="@+id/team_3_venue"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textSize="10sp" />
 
-    </TableRow>
+            </TableRow>
+
+            <TableRow android:gravity="center">
+
+                <!-- Fixture 4 date -->
+                <TextView
+                    android:id="@+id/match_date_4"
+                    android:padding="5dp"
+                    android:textSize="10sp" />
 
 
+                <!-- home team 4 -->
+                <TextView
+                    android:id="@+id/team_4_home"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textSize="10sp" />
 
-    <TextView
+                <!-- away team 4 -->
+                <TextView
+                    android:id="@+id/team_4_away"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textSize="10sp" />
+
+                <!-- team 4 venue -->
+                <TextView
+                    android:id="@+id/team_4_venue"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textSize="10sp" />
+
+            </TableRow>
+
+            <TableRow android:gravity="center">
+
+                <!-- Fixture 5 date -->
+                <TextView
+                    android:id="@+id/match_date_5"
+                    android:padding="5dp"
+                    android:textSize="10sp" />
+
+
+                <!-- home team 5 -->
+                <TextView
+                    android:id="@+id/team_5_home"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textSize="10sp" />
+
+                <!-- away team 5 -->
+                <TextView
+                    android:id="@+id/team_5_away"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textSize="10sp" />
+
+                <!-- team 5 venue -->
+                <TextView
+                    android:id="@+id/team_5_venue"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textSize="10sp" />
+
+            </TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/time_comments"
+                android:textStyle="bold" />
+
+        </TableLayout>
+    </RelativeLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="@string/time_comments"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_menu" />
 
-</TableLayout>
+</android.support.v4.widget.DrawerLayout>

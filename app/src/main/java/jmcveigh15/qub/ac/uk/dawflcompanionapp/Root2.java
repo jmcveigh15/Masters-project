@@ -18,14 +18,15 @@ public class  Root2 {
 
     // this class sets the parameters for the contents of the arrayList full of fixtures info
     class Data2 {
-        String competitionName, homeTeam, awayTeam, venue;
+        String fixtureDate, competitionName, homeTeam, awayTeam, venue;
 
         // constructor without args
         public Data2() {
         }
 
         // constructor with args
-        public Data2(String competitionName, String homeTeam, String awayTeam, String venue) {
+        public Data2(String fixtureDate,String competitionName, String homeTeam, String awayTeam, String venue) {
+            this.fixtureDate=fixtureDate;
             this.competitionName = competitionName;
             this.homeTeam = homeTeam;
             this.awayTeam = awayTeam;

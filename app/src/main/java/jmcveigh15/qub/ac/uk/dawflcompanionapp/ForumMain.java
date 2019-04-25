@@ -46,8 +46,8 @@ public class ForumMain extends AppCompatActivity implements NavigationView.OnNav
     ArrayList<ChatMessage> arrayList = new ArrayList<>();
     DatabaseReference mDatabaseReference;
     ListView listOfMessage;
-    DrawerLayout mDrawerLayout;
     EditText input;
+    DrawerLayout mDrawerLayout;
 
     @SuppressLint("RestrictedApi")
     @Override

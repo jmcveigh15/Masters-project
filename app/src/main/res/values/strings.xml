@@ -1,9 +1,14 @@
 <resources>
     <string name="app_name">DAWFL Companion App</string>
 
-    <string name="fixtures_button">Fixtures</string>
-    <string name="tables_button">Tables</string>
-    <string name="results_button">Results</string>
+    <!--Strings for hub names in activity main-->
+    <string name="Prem_Hub">Premier Division Hub</string>
+    <string name="D1_Hub">Division 1 Hub</string>
+    <string name="D2_Hub">Division 2 Hub</string>
+    <string name="R1_Hub">Reserve 1 Hub</string>
+    <string name="R2_Hub">Reserve 2 Hub</string>
+
+    <string name="valNum">x</string>
 
     <string name="logo_description">League Logo</string>
     <string name="fixtures_description">This is a link to the fixtures section</string>
@@ -31,7 +36,6 @@
     <string name="profile">Profile</string>
 
 
-
     <string name="pitch_locations">Pitch Locations</string>
 
     <!--Results sending strings-->
@@ -51,10 +55,14 @@
 
     <!--Row placeholder strings -->
     <string name="club">club</string>
-    <string name="valNum">x</string>
 
     <!--Hardcoded due to end of season and less processing from json-->
-    <string name="comments">02 Oct 2018 - Clonduff II deducted 3 points - Misconduct (Rule 13.13.1)</string>
+    <string name="comments_res1">02 Oct 2018 - Clonduff II deducted 3 points - Misconduct (Rule 13.13.1)</string>
+    <string name="comments_d2">22 Mar 2019 - Clarawood deducted 3 points - Misconduct (Rule 13.13.1)
+19 Jan 2019 - Colin Valley III deducted 3 points - Misconduct (Rule 13.13.1)
+11 Jan 2019 - Clarawood deducted 3 points - Misconduct (Rule 13.13.1)</string>
+    <string name="comments_d1">07 Dec 2018 - Comber Star deducted 3 points - Misconduct (Rule 13.13.1)31 Jan 2019 - Portavogie Rangers II deducted 3 points - Misconduct (Rule 13.13.1)15 Mar 2019 - Castlereagh FC 82 deducted 3 points - Misconduct (Rule 13.13.1) </string>
+    <string name="comments_prem"> 31 Jan 2019 - 3rd Bangor deducted 3 points - Misconduct (Rule 13.13.1)08 Mar 2019 - Clonduff deducted 3 points - Misconduct (Rule 13.13.1) </string>
     <string name="title_activity_maps">Map</string>
 
     <string name="nav_drawer_open">Open Navigation Drawer</string>

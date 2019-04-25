@@ -2,11 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="jmcveigh15.qub.ac.uk.dawflcompanionapp">
 
-    <!--
-         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
-         Google Maps Android API v2, but you must specify either coarse or fine
-         location permissions for the 'MyLocation' functionality.
-    -->
+    <!-- permissions for internet and location -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -18,33 +14,47 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-
+        <!-- Google maps api key -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+        <!--Declaring activities and their themes-->
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"/>
-        <activity android:name=".Reserve1Table"/>
+        <activity android:name=".PremTable" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".D1Table" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".D2Table" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Reserve1Table" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Reserve2Table" android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Register"/>
-        <activity android:name=".PremFixtures"/>
-        <activity android:name=".D1Fixtures"/>
-        <activity android:name=".D2Fixtures"/>
-        <activity android:name=".R1Fixtures"/>
-        <activity android:name=".R2Fixtures"/>
+        <activity android:name=".PremFixtures" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".D1Fixtures" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".D2Fixtures" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".R1Fixtures" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".R2Fixtures" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Prem" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".PremResults" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".D1Results" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".D2Results" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".R1Results" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".R2Results" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Division_1" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Division_2" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Reserve_1" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Reserve_2" android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Login"/>
         <activity android:name=".ForumMain" android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".GalleryMain" android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Profile" android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".FreeWeek" android:theme="@style/AppTheme.NoActionBar"/>
+        <!--Launch on main activity-->
         <activity android:name=".MainActivity" android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

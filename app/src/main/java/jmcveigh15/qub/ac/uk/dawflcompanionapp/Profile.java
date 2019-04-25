@@ -161,7 +161,8 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
-                                Toast.makeText(Profile.this, "Profile Updated!", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                Toast.makeText(getApplicationContext(), "Profile Updated!", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

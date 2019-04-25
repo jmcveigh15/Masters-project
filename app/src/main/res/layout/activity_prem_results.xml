@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scrollbars="none">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    style="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?android:attr/actionBarSize"
+                    android:background="@color/colorPrimary"
+                    android:elevation="4dp"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+
+                <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/toolbar"
+                    android:fitsSystemWindows="true">
+
+                    <TextView
+                        android:layout_gravity="center_horizontal"
+                        android:paddingLeft="5dp"
+                        android:text="Premier Division Results"
+                        android:textStyle="bold" />
+
+
+                    <TableRow
+                        android:fitsSystemWindows="true"
+                        android:gravity="center">
+
+                        <!-- date column -->
+                        <TextView
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="@string/date"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <!-- home team column -->
+                        <TextView
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="@string/home_team"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <!-- venue column -->
+                        <TextView
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Score"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <!-- away team column -->
+                        <TextView
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="@string/away_team"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+
+                    </TableRow>
+
+                    <TableRow android:gravity="center">
+
+                        <!-- home Team 1  -->
+                        <TextView
+                            android:id="@+id/match_1_date"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+
+                        <!-- home Team 1  -->
+                        <TextView
+                            android:id="@+id/team_1_home"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- result 1 -->
+                        <TextView
+                            android:id="@+id/result_1"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- away Team 1  -->
+                        <TextView
+                            android:id="@+id/team_1_away"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+
+                    </TableRow>
+
+                    <TableRow android:gravity="center">
+                        <!-- home Team 1  -->
+                        <TextView
+                            android:id="@+id/match_2_date"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- home team 2 -->
+                        <TextView
+                            android:id="@+id/team_2_home"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- result 1 -->
+                        <TextView
+                            android:id="@+id/result_2"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- away team 2 -->
+                        <TextView
+                            android:id="@+id/team_2_away"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+
+                    </TableRow>
+
+                    <TableRow android:gravity="center">
+                        <!-- home Team 1  -->
+                        <TextView
+                            android:id="@+id/match_3_date"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- home team 3 -->
+                        <TextView
+                            android:id="@+id/team_3_home"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+                        <!-- result 3 -->
+                        <TextView
+                            android:id="@+id/result_3"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- away team 3 -->
+                        <TextView
+                            android:id="@+id/team_3_away"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+
+                    </TableRow>
+
+                    <TableRow android:gravity="center">
+                        <!-- home Team 1  -->
+                        <TextView
+                            android:id="@+id/match_4_date"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- home team 4 -->
+                        <TextView
+                            android:id="@+id/team_4_home"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+                        <!-- result 4 -->
+                        <TextView
+                            android:id="@+id/result_4"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- away team 4 -->
+                        <TextView
+                            android:id="@+id/team_4_away"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+
+                    </TableRow>
+
+                    <TableRow android:gravity="center">
+                        <!-- home Team 1  -->
+                        <TextView
+                            android:id="@+id/match_5_date"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- home team 5 -->
+                        <TextView
+                            android:id="@+id/team_5_home"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- result 5 -->
+                        <TextView
+                            android:id="@+id/result_5"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- away team 5 -->
+                        <TextView
+                            android:id="@+id/team_5_away"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+
+                    </TableRow>
+
+                    <TableRow android:gravity="center">
+                        <!-- home Team 1  -->
+                        <TextView
+                            android:id="@+id/match_6_date"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- home team 6 -->
+                        <TextView
+                            android:id="@+id/team_6_home"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+                        <!-- result 6 -->
+                        <TextView
+                            android:id="@+id/result_6"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- away team 6 -->
+                        <TextView
+                            android:id="@+id/team_6_away"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+
+                    </TableRow>
+
+                    <TableRow android:gravity="center">
+                        <!-- home Team 1  -->
+                        <TextView
+                            android:id="@+id/match_7_date"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- home team 7 -->
+                        <TextView
+                            android:id="@+id/team_7_home"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- result 7 -->
+                        <TextView
+                            android:id="@+id/result_7"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- away team 7 -->
+                        <TextView
+                            android:id="@+id/team_7_away"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+
+                    </TableRow>
+
+                    <TableRow android:gravity="center">
+                        <!-- home Team 1  -->
+                        <TextView
+                            android:id="@+id/match_8_date"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- home team 7 -->
+                        <TextView
+                            android:id="@+id/team_8_home"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- result 1 -->
+                        <TextView
+                            android:id="@+id/result_8"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- away team 7-->
+                        <TextView
+                            android:id="@+id/team_8_away"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+
+                    </TableRow>
+
+                    <TableRow android:gravity="center">
+                        <!-- home Team 1  -->
+                        <TextView
+                            android:id="@+id/match_9_date"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- home team 8 -->
+                        <TextView
+                            android:id="@+id/team_9_home"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- result 1 -->
+                        <TextView
+                            android:id="@+id/result_9"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- away team 8 -->
+                        <TextView
+                            android:id="@+id/team_9_away"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+
+                    </TableRow>
+
+
+                    <TableRow android:gravity="center">
+                        <!-- home Team 1  -->
+                        <TextView
+                            android:id="@+id/match_10_date"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- home Team 1  -->
+                        <TextView
+                            android:id="@+id/team_10_home"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- result 1 -->
+                        <TextView
+                            android:id="@+id/result_10"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- away Team 1  -->
+                        <TextView
+                            android:id="@+id/team_10_away"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+
+                    </TableRow>
+
+                    <TableRow android:gravity="center">
+                        <!-- home Team 1  -->
+                        <TextView
+                            android:id="@+id/match_11_date"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- home team 2 -->
+                        <TextView
+                            android:id="@+id/team_11_home"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- result 1 -->
+                        <TextView
+                            android:id="@+id/result_11"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- away team 2 -->
+                        <TextView
+                            android:id="@+id/team_11_away"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+
+                    </TableRow>
+
+                    <TableRow android:gravity="center">
+                        <!-- home Team 1  -->
+                        <TextView
+                            android:id="@+id/match_12_date"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- home team 3 -->
+                        <TextView
+                            android:id="@+id/team_12_home"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+                        <!-- result 1 -->
+                        <TextView
+                            android:id="@+id/result_12"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- away team 3 -->
+                        <TextView
+                            android:id="@+id/team_12_away"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+
+                    </TableRow>
+
+                    <TableRow android:gravity="center">
+                        <!-- home Team 1  -->
+                        <TextView
+                            android:id="@+id/match_13_date"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- home team 4 -->
+                        <TextView
+                            android:id="@+id/team_13_home"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- result 1 -->
+                        <TextView
+                            android:id="@+id/result_13"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- away team 4 -->
+                        <TextView
+                            android:id="@+id/team_13_away"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+
+                    </TableRow>
+
+                    <TableRow android:gravity="center">
+                        <!-- home Team 1  -->
+                        <TextView
+                            android:id="@+id/match_14_date"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- home team 5 -->
+                        <TextView
+                            android:id="@+id/team_14_home"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+                        <!-- result 1 -->
+                        <TextView
+                            android:id="@+id/result_14"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- away team 5 -->
+                        <TextView
+                            android:id="@+id/team_14_away"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+
+                    </TableRow>
+
+                    <TableRow android:gravity="center">
+                        <!-- home Team 1  -->
+                        <TextView
+                            android:id="@+id/match_15_date"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- home team 6 -->
+                        <TextView
+                            android:id="@+id/team_15_home"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- result 1 -->
+                        <TextView
+                            android:id="@+id/result_15"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- away team 6 -->
+                        <TextView
+                            android:id="@+id/team_15_away"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+
+                    </TableRow>
+
+                    <TableRow android:gravity="center">
+                        <!-- home Team 1  -->
+                        <TextView
+                            android:id="@+id/match_16_date"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- home team 7 -->
+                        <TextView
+                            android:id="@+id/team_16_home"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- result 1 -->
+                        <TextView
+                            android:id="@+id/result_16"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- away team 7-->
+                        <TextView
+                            android:id="@+id/team_16_away"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+
+                    </TableRow>
+
+                    <TableRow android:gravity="center">
+                        <!-- home Team 1  -->
+                        <TextView
+                            android:id="@+id/match_17_date"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- home team 8 -->
+                        <TextView
+                            android:id="@+id/team_17_home"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- result 1 -->
+                        <TextView
+                            android:id="@+id/result_17"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- away team 8 -->
+                        <TextView
+                            android:id="@+id/team_17_away"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+
+                    </TableRow>
+
+                    <TableRow android:gravity="center">
+                        <!-- home Team 1  -->
+                        <TextView
+                            android:id="@+id/match_18_date"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- home team 9-->
+                        <TextView
+                            android:id="@+id/team_18_home"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- result 1 -->
+                        <TextView
+                            android:id="@+id/result_18"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- away team 9 -->
+                        <TextView
+                            android:id="@+id/team_18_away"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+
+                    </TableRow>
+
+                    <TableRow android:gravity="center">
+                        <!-- home Team 1  -->
+                        <TextView
+                            android:id="@+id/match_19_date"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- home team 10-->
+                        <TextView
+                            android:id="@+id/team_19_home"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- result 1 -->
+                        <TextView
+                            android:id="@+id/result_19"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- away team 10-->
+                        <TextView
+                            android:id="@+id/team_19_away"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+
+                    </TableRow>
+
+                    <TableRow android:gravity="center">
+                        <!-- date 20  -->
+                        <TextView
+                            android:id="@+id/match_20_date"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+
+                        <!-- home team 11-->
+                        <TextView
+                            android:id="@+id/team_20_home"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- result 1 -->
+                        <TextView
+                            android:id="@+id/result_20"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+                        <!-- away team 11 -->
+                        <TextView
+                            android:id="@+id/team_20_away"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textSize="10sp" />
+
+
+                    </TableRow>
+                </TableLayout>
+
+            </RelativeLayout>
+        </ScrollView>
+            <android.support.design.widget.NavigationView
+                android:id="@+id/nav_view"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                app:headerLayout="@layout/nav_header"
+                app:menu="@menu/drawer_menu" />
+
+    </android.support.v4.widget.DrawerLayout>

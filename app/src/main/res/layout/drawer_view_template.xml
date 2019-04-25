@@ -8,7 +8,7 @@
     android:fitsSystemWindows="true"
     tools:context=".Profile">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -24,7 +24,7 @@
 
         <!-- your stuff goes here-->
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"

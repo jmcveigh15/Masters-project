@@ -19,7 +19,7 @@ import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
-    private TextView mLoggedInTextView;
+    private TextView mLoggedInTextView, premTextView, div1TextView, div2TextView, res1TextView, res2TextView;
     private ImageView mUserPicImageView;
     private DrawerLayout mDrawerLayout;
 
@@ -45,9 +45,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // depending whether the user is logged in
         loggedInCheck();
 
-        // on click listeners
-        findViewById(R.id.tables_button).setOnClickListener(this);
-        findViewById(R.id.fixtures_button).setOnClickListener(this);
+        premTextView = (TextView) findViewById(R.id.Prem_Main);
+        premTextView.setOnClickListener(this);
+        div1TextView = (TextView) findViewById(R.id.Div1_Main);
+        div1TextView.setOnClickListener(this);
+        div2TextView = (TextView) findViewById(R.id.Div2_Main);
+        div2TextView.setOnClickListener(this);
+        res1TextView = (TextView) findViewById(R.id.Res1_Main);
+        res1TextView.setOnClickListener(this);
+        res2TextView = (TextView) findViewById(R.id.Res2_Main);
+        res2TextView.setOnClickListener(this);
     }
 
 
@@ -68,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // displays logged in message
             String displayName = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
             mLoggedInTextView = (TextView) findViewById(R.id.logged_in);
-            mLoggedInTextView.setText(displayName);
+            mLoggedInTextView.setText("You are currently signed in as "+displayName);
             mLoggedInTextView.setVisibility(View.VISIBLE);
 
             // displays pic next to display name
@@ -91,14 +98,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.tables_button:
-                startActivity(new Intent(MainActivity.this, Reserve1Table.class));
-                break;
-            case R.id.fixtures_button:
-                startActivity(new Intent(MainActivity.this, R2Fixtures.class));
-                break;
             case R.id.user_pic_id:
                 startActivity(new Intent(this, Profile.class));
+                break;
+            case R.id.Prem_Main:
+                startActivity(new Intent(this, Prem.class));
+                break;
+            case R.id.Div1_Main:
+                startActivity(new Intent(this, Division_1.class));
+                break;
+            case R.id.Div2_Main:
+                startActivity(new Intent(this, Division_2.class));
+                break;
+            case R.id.Res1_Main:
+                startActivity(new Intent(this, Reserve_1.class));
+                break;
+            case R.id.Res2_Main:
+                startActivity(new Intent(this, Reserve_2.class));
                 break;
         }
     }
@@ -111,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 FirebaseAuth.getInstance().signOut();
                 finish();
                 startActivity(new Intent(this, MainActivity.class));
-                Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Logged out", Toast.LENGTH_LONG).show();
                 break;
             case R.id.nav_free_week:
                 startActivity(new Intent(this, FreeWeek.class));

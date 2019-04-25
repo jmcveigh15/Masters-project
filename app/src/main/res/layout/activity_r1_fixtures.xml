@@ -1,10 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".D1Fixtures">
+    tools:context=".Profile">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:elevation="4dp"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_below="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".R1Fixtures">
 
     <TextView
         android:paddingLeft="5dp"
@@ -56,7 +79,6 @@
         <TextView
             android:id="@+id/match_date_1"
             android:padding="5dp"
-            android:text="@string/april_20th"
             android:textSize="10sp" />
 
 
@@ -65,7 +87,6 @@
             android:id="@+id/team_1_home"
             android:gravity="center"
             android:padding="5dp"
-            android:text="@string/valNum"
             android:textSize="10sp" />
 
         <!-- away Team 1  -->
@@ -73,7 +94,6 @@
             android:id="@+id/team_1_away"
             android:gravity="center"
             android:padding="5dp"
-            android:text="@string/valNum"
             android:textSize="10sp" />
 
         <!-- homeTeam 1 venue -->
@@ -81,7 +101,6 @@
             android:id="@+id/team_1_venue"
             android:gravity="center"
             android:padding="5dp"
-            android:text="@string/valNum"
             android:textSize="10sp" />
 
     </TableRow>
@@ -92,7 +111,6 @@
         <TextView
             android:id="@+id/match_date_2"
             android:padding="5dp"
-            android:text="@string/april_20th"
             android:textSize="10sp" />
 
 
@@ -101,7 +119,6 @@
             android:id="@+id/team_2_home"
             android:gravity="center"
             android:padding="5dp"
-            android:text="@string/valNum"
             android:textSize="10sp" />
 
         <!-- away team 2 -->
@@ -109,7 +126,6 @@
             android:id="@+id/team_2_away"
             android:gravity="center"
             android:padding="5dp"
-            android:text="@string/valNum"
             android:textSize="10sp" />
 
         <!-- team 2 venue -->
@@ -117,7 +133,6 @@
             android:id="@+id/team_2_venue"
             android:gravity="center"
             android:padding="5dp"
-            android:text="@string/valNum"
             android:textSize="10sp" />
 
     </TableRow>
@@ -128,7 +143,6 @@
         <TextView
             android:id="@+id/match_date_3"
             android:padding="5dp"
-            android:text="@string/april_27th"
             android:textSize="10sp" />
 
 
@@ -137,7 +151,6 @@
             android:id="@+id/team_3_home"
             android:gravity="center"
             android:padding="5dp"
-            android:text="@string/valNum"
             android:textSize="10sp" />
 
         <!-- away team 3 -->
@@ -145,7 +158,6 @@
             android:id="@+id/team_3_away"
             android:gravity="center"
             android:padding="5dp"
-            android:text="@string/valNum"
             android:textSize="10sp" />
 
         <!-- team 3 venue -->
@@ -153,7 +165,6 @@
             android:id="@+id/team_3_venue"
             android:gravity="center"
             android:padding="5dp"
-            android:text="@string/valNum"
             android:textSize="10sp" />
 
     </TableRow>
@@ -166,3 +177,14 @@
         android:textStyle="bold" />
 
 </TableLayout>
+    </RelativeLayout>
+
+<android.support.design.widget.NavigationView
+android:id="@+id/nav_view"
+android:layout_width="wrap_content"
+android:layout_height="match_parent"
+android:layout_gravity="start"
+app:headerLayout="@layout/nav_header"
+app:menu="@menu/drawer_menu" />
+
+    </android.support.v4.widget.DrawerLayout>

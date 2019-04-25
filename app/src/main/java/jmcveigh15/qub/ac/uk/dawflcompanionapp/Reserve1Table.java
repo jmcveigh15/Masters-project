@@ -1,12 +1,25 @@
 package jmcveigh15.qub.ac.uk.dawflcompanionapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 // this class is the front end of the league table
 // it shows parsed json data in a table using updated textViews
-public class Reserve1Table extends AppCompatActivity implements Fetch.AsyncResponse {
+public class Reserve1Table extends AppCompatActivity implements Fetch.AsyncResponse, NavigationView.OnNavigationItemSelectedListener {
+
+    DrawerLayout mDrawerLayout;
 
     // team name textViews
     private TextView team1nameTextView, team2nameTextView, team3nameTextView, team4nameTextView, team5nameTextView, team6nameTextView, team7nameTextView, team8nameTextView, team9nameTextView;
@@ -43,6 +56,17 @@ public class Reserve1Table extends AppCompatActivity implements Fetch.AsyncRespo
         setContentView(R.layout.activity_table);
         // this executes the doInBackGround async activity to retrieve json data and parse it
         new Fetch(this).execute();
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.nav_drawer_open, R.string.nav_drawer_close);
+        mDrawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
     }
 
     // this override brings the converted json to this activity
@@ -230,6 +254,70 @@ public class Reserve1Table extends AppCompatActivity implements Fetch.AsyncRespo
         team9PointsTextView = (TextView) findViewById(R.id.team_9_points_id);
         team9PointsTextView.setText(ar[80]);
 
+    }
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.nav_log_out:
+                FirebaseAuth.getInstance().signOut();
+                finish();
+                startActivity(new Intent(this, MainActivity.class));
+                Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_free_week:
+                startActivity(new Intent(this, FreeWeek.class));
+                finish();
+                break;
+            case R.id.nav_login_register:
+                if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+                    startActivity(new Intent(this, Login.class));
+                } else {
+                    Toast.makeText(this, "Already logged in", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.nav_pitch_location:
+                startActivity(new Intent(this, MapsActivity.class));
+                break;
+            case R.id.nav_send_result:
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(Intent.EXTRA_TEXT, getString(R.string.result_instructions));
+                i = Intent.createChooser(i, getString(R.string.send_result));
+                startActivity(i);
+                break;
+            case R.id.nav_home:
+                startActivity(new Intent(this, MainActivity.class));
+                break;
+            case R.id.nav_profile:
+                if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+                    Toast.makeText(this, "Log in or register to view your profile", Toast.LENGTH_SHORT).show();
+                } else {
+                    startActivity(new Intent(this, Profile.class));
+                }
+                break;
+            case R.id.nav_forums:
+                startActivity(new Intent(this, ForumMain.class));
+                finish();
+                break;
+            case R.id.nav_gallery:
+                startActivity(new Intent(this, GalleryMain.class));
+                finish();
+                break;
+
+        }
+        mDrawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            mDrawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 }
 
