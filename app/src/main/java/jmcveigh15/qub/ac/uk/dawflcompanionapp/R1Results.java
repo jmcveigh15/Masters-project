@@ -80,6 +80,7 @@ public class R1Results extends AppCompatActivity implements FetchR1Results.Async
         String april_27 = "1556370000";
         String may_1 = "1556731800";
 
+        /** removed due to final size of results json for r1
         // setting first result row in d2 division
         try {
             homeTeam1TextView = (TextView) findViewById(R.id.team_1_home);
@@ -271,6 +272,7 @@ public class R1Results extends AppCompatActivity implements FetchR1Results.Async
             fixtureDate5.setText(date1);
         } catch (IndexOutOfBoundsException e) {
         }
+        **/
 
         try {
             homeTeam6TextView = (TextView) findViewById(R.id.team_6_home);

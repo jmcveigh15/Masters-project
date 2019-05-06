@@ -80,44 +80,7 @@ public class R2Results extends AppCompatActivity implements FetchR2Results.Async
         String april_27 = "1556370000";
         String may_1 = "1556731800";
 
-        // setting first result row in d2 division
-        try {
-            homeTeam1TextView = (TextView) findViewById(R.id.team_1_home);
-            homeTeam1TextView.setText((CharSequence) ar.get(36));
-            awayTeam1TextView = (TextView) findViewById(R.id.team_1_away);
-            awayTeam1TextView.setText((CharSequence) ar.get(37));
-            homeTeam1ScoreTextView = (TextView) findViewById(R.id.result_1);
-            homeTeam1ScoreTextView.setText((CharSequence) ar.get(38));
-            fixtureDate1 = (TextView) findViewById(R.id.match_1_date);
-            String date1 = ar.get(39);
-            if (date1.equals(april_24)) {
-                date1 = "24/04";
-            } else if (date1.equals(april_27)) {
-                date1 = "27/04";
-            } else if (date1.equals(may_1)) {
-                date1 = "01/05";
-            } else if (date1.equals(march_30)) {
-                date1 = "30/03";
-            } else if (date1.equals(april_3)) {
-                date1 = "03/04";
-            } else if (date1.equals(april_6)) {
-                date1 = "06/04";
-            } else if (date1.equals(april_10)) {
-                date1 = "10/04";
-            } else if (date1.equals(april_13)) {
-                date1 = "13/04";
-            } else if (date1.equals(april_17)) {
-                date1 = "17/04";
-            } else if (date1.equals(april_20)) {
-                date1 = "20/04";
-            }  else if (date1.equals(april_9)) {
-                date1 = "09/04";
-            } else {
-                date1 = "Unavailable";
-            }
-            fixtureDate1.setText(date1);
-        } catch (IndexOutOfBoundsException e) {
-        }
+       // row 1 of results removed due to final size of r2 json data reached
 
         // setting 2nd result row in d2 division
         try {
@@ -463,6 +426,7 @@ public class R2Results extends AppCompatActivity implements FetchR2Results.Async
         }
     }
 
+    // adds functionality to menu items within nav bar
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
@@ -517,6 +481,7 @@ public class R2Results extends AppCompatActivity implements FetchR2Results.Async
         return true;
     }
 
+    // lets the user press back to close nav bar
     @Override
     public void onBackPressed() {
         if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {

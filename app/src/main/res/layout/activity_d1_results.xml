@@ -28,7 +28,6 @@
 
 
         <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
@@ -81,30 +80,30 @@
 
             </TableRow>
 
-
+<!--
 
             <TableRow android:gravity="center">
-                <!-- home Team 1  -->
+
                 <TextView
                     android:id="@+id/match_6_date"
                     android:gravity="center"
                     android:padding="5dp"
                     android:textSize="10sp" />
 
-                <!-- home team 6 -->
+
                 <TextView
                     android:id="@+id/team_6_home"
                     android:gravity="center"
                     android:padding="5dp"
                     android:textSize="10sp" />
-                <!-- result 6 -->
+
                 <TextView
                     android:id="@+id/result_6"
                     android:gravity="center"
                     android:padding="5dp"
                     android:textSize="10sp" />
 
-                <!-- away team 6 -->
+
                 <TextView
                     android:id="@+id/team_6_away"
                     android:gravity="center"
@@ -115,28 +114,28 @@
             </TableRow>
 
             <TableRow android:gravity="center">
-                <!-- home Team 1  -->
+
                 <TextView
                     android:id="@+id/match_7_date"
                     android:gravity="center"
                     android:padding="5dp"
                     android:textSize="10sp" />
 
-                <!-- home team 7 -->
+
                 <TextView
                     android:id="@+id/team_7_home"
                     android:gravity="center"
                     android:padding="5dp"
                     android:textSize="10sp" />
 
-                <!-- result 7 -->
+
                 <TextView
                     android:id="@+id/result_7"
                     android:gravity="center"
                     android:padding="5dp"
                     android:textSize="10sp" />
 
-                <!-- away team 7 -->
+
                 <TextView
                     android:id="@+id/team_7_away"
                     android:gravity="center"
@@ -147,28 +146,28 @@
             </TableRow>
 
             <TableRow android:gravity="center">
-                <!-- home Team 1  -->
+
                 <TextView
                     android:id="@+id/match_8_date"
                     android:gravity="center"
                     android:padding="5dp"
                     android:textSize="10sp" />
 
-                <!-- home team 7 -->
+
                 <TextView
                     android:id="@+id/team_8_home"
                     android:gravity="center"
                     android:padding="5dp"
                     android:textSize="10sp" />
 
-                <!-- result 1 -->
+
                 <TextView
                     android:id="@+id/result_8"
                     android:gravity="center"
                     android:padding="5dp"
                     android:textSize="10sp" />
 
-                <!-- away team 7-->
+
                 <TextView
                     android:id="@+id/team_8_away"
                     android:gravity="center"
@@ -179,28 +178,28 @@
             </TableRow>
 
             <TableRow android:gravity="center">
-                <!-- home Team 1  -->
+
                 <TextView
                     android:id="@+id/match_9_date"
                     android:gravity="center"
                     android:padding="5dp"
                     android:textSize="10sp" />
 
-                <!-- home team 8 -->
+
                 <TextView
                     android:id="@+id/team_9_home"
                     android:gravity="center"
                     android:padding="5dp"
                     android:textSize="10sp" />
 
-                <!-- result 1 -->
+
                 <TextView
                     android:id="@+id/result_9"
                     android:gravity="center"
                     android:padding="5dp"
                     android:textSize="10sp" />
 
-                <!-- away team 8 -->
+
                 <TextView
                     android:id="@+id/team_9_away"
                     android:gravity="center"
@@ -212,28 +211,28 @@
 
 
             <TableRow android:gravity="center">
-                <!-- home Team 1  -->
+
                 <TextView
                     android:id="@+id/match_10_date"
                     android:gravity="center"
                     android:padding="5dp"
                     android:textSize="10sp" />
 
-                <!-- home Team 1  -->
+
                 <TextView
                     android:id="@+id/team_10_home"
                     android:gravity="center"
                     android:padding="5dp"
                     android:textSize="10sp" />
 
-                <!-- result 1 -->
+
                 <TextView
                     android:id="@+id/result_10"
                     android:gravity="center"
                     android:padding="5dp"
                     android:textSize="10sp" />
 
-                <!-- away Team 1  -->
+
                 <TextView
                     android:id="@+id/team_10_away"
                     android:gravity="center"
@@ -242,7 +241,7 @@
 
 
             </TableRow>
-
+-->
             <TableRow android:gravity="center">
                 <!-- home Team 1  -->
                 <TextView

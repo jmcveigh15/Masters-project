@@ -1,9 +1,7 @@
 package jmcveigh15.qub.ac.uk.dawflcompanionapp;
 
 import android.os.AsyncTask;
-
 import com.google.gson.Gson;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,8 +23,7 @@ public class FetchDiv1 extends AsyncTask<Void, Void, String[]> {
     // initialise the interface object as delegate
     private AsyncResponse delegate = null;
 
-    // this reads the json data from the internet
-    // and converts it to a java object
+    // this reads the json data from the internet and converts it to a java object
     @Override
     protected String[] doInBackground(Void... voids) {
         try {

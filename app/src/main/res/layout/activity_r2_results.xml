@@ -30,10 +30,10 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_below="@+id/toolbar"
                 android:fitsSystemWindows="true"
                 android:shrinkColumns="*"
-                tools:context=".R2Results"
-                android:layout_below="@+id/toolbar">
+                tools:context=".R2Results">
 
                 <TextView
                     android:paddingLeft="5dp"
@@ -74,43 +74,44 @@
 
 
                 </TableRow>
+                <!--removed due to final match being played, results json data for r2 can't get bigger
+                                <TableRow android:gravity="center">
 
-                <TableRow android:gravity="center">
-                    <!-- home Team 1  -->
-                    <TextView
-                        android:id="@+id/match_1_date"
-                        android:gravity="center"
-                        android:padding="5dp"
-                        android:textSize="10sp" />
-
-
-                    <!-- home Team 1  -->
-                    <TextView
-                        android:id="@+id/team_1_home"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:padding="5dp"
-                        android:textSize="10sp" />
-
-                    <!-- result 1 -->
-                    <TextView
-                        android:id="@+id/result_1"
-                        android:gravity="center"
-                        android:padding="5dp"
-                        android:textSize="10sp" />
-
-                    <!-- away Team 1  -->
-                    <TextView
-                        android:id="@+id/team_1_away"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:padding="5dp"
-                        android:textSize="10sp" />
+                                    <TextView
+                                        android:id="@+id/match_1_date"
+                                        android:gravity="center"
+                                        android:padding="5dp"
+                                        android:textSize="10sp" />
 
 
-                </TableRow>
+
+                                    <TextView
+                                        android:id="@+id/team_1_home"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:padding="5dp"
+                                        android:textSize="10sp" />
+
+
+                                    <TextView
+                                        android:id="@+id/result_1"
+                                        android:gravity="center"
+                                        android:padding="5dp"
+                                        android:textSize="10sp" />
+
+
+                                    <TextView
+                                        android:id="@+id/team_1_away"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:padding="5dp"
+                                        android:textSize="10sp" />
+
+
+                                </TableRow>
+                                -->
 
                 <TableRow android:gravity="center">
 
@@ -481,6 +482,7 @@
             </TableLayout>
         </RelativeLayout>
     </ScrollView>
+
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"

@@ -17,7 +17,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Login extends AppCompatActivity implements View.OnClickListener {
+public class
+Login extends AppCompatActivity implements View.OnClickListener {
 
     FirebaseAuth mFirebaseAuth;
     EditText mEditTextEmail, mEditTextPassword;
@@ -79,7 +80,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 }else {
-                    Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), task.getException().getMessage(),
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });

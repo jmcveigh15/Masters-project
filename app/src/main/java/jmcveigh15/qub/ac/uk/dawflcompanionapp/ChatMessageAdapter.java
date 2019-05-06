@@ -39,7 +39,6 @@ public class ChatMessageAdapter extends ArrayAdapter<ChatMessage> {
         // assigns the textviews in list_item.xml a textview variable
         TextView chatName = (TextView) listView.findViewById(R.id.message_user);
         TextView chatText = (TextView) listView.findViewById(R.id.message_text);
-
         ImageView userPic = (ImageView) listView.findViewById(R.id.user_pic_chat);
 
         // assigns the commenting user's data to the correct text/imageviews for the arraylist
@@ -52,7 +51,6 @@ public class ChatMessageAdapter extends ArrayAdapter<ChatMessage> {
         Glide.with(getContext())
                     .load(pic)
                     .into(userPic);
-
 
         return listView;
     }

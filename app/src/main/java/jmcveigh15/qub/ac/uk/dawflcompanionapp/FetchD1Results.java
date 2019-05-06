@@ -16,9 +16,6 @@ import java.util.ArrayList;
 public class FetchD1Results extends AsyncTask<Void, Void, ArrayList<String>> {
     // this is where the raw json is held until Gson gets to it
     private String dataRead = "";
-    private String score1, score2, score3, score4;
-
-    private String score, useScore;
 
     // interface is needed for an asynctask to be referenced in another class
     public interface AsyncResponse {

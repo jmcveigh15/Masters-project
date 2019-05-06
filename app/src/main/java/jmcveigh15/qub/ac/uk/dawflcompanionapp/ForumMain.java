@@ -75,30 +75,35 @@ public class ForumMain extends AppCompatActivity implements NavigationView.OnNav
 
         displayComments();
 
-        //Check if not sign-in then navigate Signin page
-        if (FirebaseAuth.getInstance().getCurrentUser() == null||!FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()) {
+        //Check if not sign-in then send message to user
+        if (FirebaseAuth.getInstance().getCurrentUser() == null || !FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()) {
             Toast.makeText(this, "Please sign in and  verify your email to comment", Toast.LENGTH_SHORT).show();
         } else {
             FirebaseAuth.getInstance().getCurrentUser().reload();
             fab.setVisibility(View.VISIBLE);
             input.setVisibility(View.VISIBLE);
-            Toast.makeText(getApplicationContext(), "Welcome "+FirebaseAuth.getInstance().getCurrentUser().getDisplayName()+ " to the forum", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Welcome " + FirebaseAuth.getInstance().getCurrentUser().getDisplayName() +
+                    " to the forum", Toast.LENGTH_SHORT).show();
         }
 
         // this is the send button
         // it sends the user's name, pic and comment to the Firebase realtime database
+        // user can only comment if profile pic and display name are not null and email is verified
         fab.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("RestrictedApi")
             @Override
             public void onClick(View v) {
-                if (FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()) {
+                if (FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()
+                        && FirebaseAuth.getInstance().getCurrentUser().getDisplayName() != null
+                        && FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl() != null) {
                     FirebaseDatabase.getInstance().getReference("Forum").push()
                             .setValue(new ChatMessage(input.getText().toString(),
                                     FirebaseAuth.getInstance().getCurrentUser().getDisplayName(),
                                     FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl().toString()));
                     input.setText("");
                 } else {
-                    Toast.makeText(getApplicationContext(), "You need to sign in and verify your email to comment", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Please set your display name and profile picture to comment",
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -109,16 +114,13 @@ public class ForumMain extends AppCompatActivity implements NavigationView.OnNav
         mDatabaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                // arraylist must be cleared
-                // or else new comment will cause old messages to repeat
+                // arraylist must be cleared or else new comment will cause old messages to repeat
                 arrayList.clear();
-
                 //loop through Firebase data and add to the arraylist which populates listview
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     ChatMessage chatMessage = snapshot.getValue(ChatMessage.class);
                     arrayList.add(chatMessage);
                 }
-
                 // displays the arraylist of messages into a listview
                 ChatMessageAdapter chatMessageAdapter = new ChatMessageAdapter(ForumMain.this, arrayList);
                 listOfMessage.setAdapter(chatMessageAdapter);

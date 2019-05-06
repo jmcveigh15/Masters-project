@@ -92,9 +92,11 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                             startActivity(new Intent(Register.this, Profile.class));
                         } else {
                             if (task.getException() instanceof FirebaseAuthEmailException) {
-                                Toast.makeText(getApplicationContext(), "This email address is already in use", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "This email address is already in use",
+                                        Toast.LENGTH_SHORT).show();
                             } else {
-                                Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), task.getException().getMessage(),
+                                        Toast.LENGTH_SHORT).show();
                             }
                         }
                     }

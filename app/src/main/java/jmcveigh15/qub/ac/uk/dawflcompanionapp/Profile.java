@@ -38,8 +38,13 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 
-public class Profile extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+// this class deals with the user's profile
+// they are sent here from the registration page, by clicking their picture on the main page or by selecting profile
+// in the nav bar
+// they can set and update their display name and profile pic and send a verification email
+public class Profile extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    // declaring variables
     private static final int CHOOSE_IMAGE = 0;
     TextView mTextView;
     ImageView mImageView;
@@ -50,11 +55,13 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
     FirebaseAuth mFirebaseAuth;
     private DrawerLayout mDrawerLayout;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        // declaring the nav bar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -67,7 +74,6 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
         toggle.syncState();
 
         mFirebaseAuth = FirebaseAuth.getInstance();
-
         mEditText = findViewById(R.id.editTextDisplayName);
         mProgressBar = findViewById(R.id.profile_progress_bar);
         mTextView = findViewById(R.id.textViewVerified);
@@ -130,7 +136,8 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 // if the email was sent it tells the user
-                                Toast.makeText(Profile.this, "Verification Email Sent", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Profile.this, "Verification Email Sent",
+                                        Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
@@ -162,10 +169,19 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                                Toast.makeText(getApplicationContext(), "Profile Updated!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Profile Updated!",
+                                        Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
+            // this allows the user to update the display name without changing the profile pic
+        } else if (user != null) {
+            UserProfileChangeRequest userProfileChangeRequest = new UserProfileChangeRequest.Builder()
+                    .setDisplayName(displayName)
+                    .build();
+            user.updateProfile(userProfileChangeRequest);
+            Toast.makeText(getApplicationContext(), "Profile Updated!",
+                    Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -176,7 +192,6 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
 
         if (requestCode == CHOOSE_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
             mUriProfileImage = data.getData();
-
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), mUriProfileImage);
                 mImageView.setImageBitmap(bitmap);
@@ -205,12 +220,14 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     profileImageUrl = uri.toString();
-                                    Toast.makeText(getApplicationContext(), "Image Upload Successful", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "Image Upload Successful",
+                                            Toast.LENGTH_SHORT).show();
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), e.getMessage(),
+                                            Toast.LENGTH_LONG).show();
                                 }
                             });
                         }
@@ -232,6 +249,7 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
         startActivityForResult(Intent.createChooser(intent, "Select profile image"), CHOOSE_IMAGE);
     }
 
+    // ensures the user exits the open nav bar when pressing back instead of closing app
     @Override
     public void onBackPressed() {
         if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -241,7 +259,7 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
         }
     }
 
-
+    // switch statements for nav bar
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
@@ -256,7 +274,7 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
                 finish();
                 break;
             case R.id.nav_login_register:
-                if(FirebaseAuth.getInstance().getCurrentUser()==null){
+                if (FirebaseAuth.getInstance().getCurrentUser() == null) {
                     startActivity(new Intent(this, Login.class));
                 } else {
                     Toast.makeText(this, "Already logged in", Toast.LENGTH_SHORT).show();
@@ -276,7 +294,7 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
                 startActivity(new Intent(this, MainActivity.class));
                 break;
             case R.id.nav_profile:
-                if(FirebaseAuth.getInstance().getCurrentUser()==null){
+                if (FirebaseAuth.getInstance().getCurrentUser() == null) {
                     Toast.makeText(this, "Log in or register to view your profile", Toast.LENGTH_SHORT).show();
                 } else {
                     startActivity(new Intent(this, Profile.class));

@@ -37,7 +37,8 @@ public class Prem extends AppCompatActivity implements View.OnClickListener, Nav
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.nav_drawer_open, R.string.nav_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar,
+                R.string.nav_drawer_open, R.string.nav_drawer_close);
         mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -110,7 +111,8 @@ public class Prem extends AppCompatActivity implements View.OnClickListener, Nav
                 break;
             case R.id.nav_profile:
                 if (FirebaseAuth.getInstance().getCurrentUser() == null) {
-                    Toast.makeText(this, "Log in or register to view your profile", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Log in or register to view your profile",
+                            Toast.LENGTH_SHORT).show();
                 } else {
                     startActivity(new Intent(this, Profile.class));
                 }

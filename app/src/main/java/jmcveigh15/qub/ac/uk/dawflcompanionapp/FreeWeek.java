@@ -29,7 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class FreeWeek extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class FreeWeek extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     FirebaseListAdapter<ChatMessage> adapter;
     RelativeLayout activity_forum_main;
     FloatingActionButton fab;
@@ -67,13 +67,13 @@ public class FreeWeek extends AppCompatActivity implements NavigationView.OnNavi
         displayComments();
 
         //Check if not sign-in then navigate Signin page
-        if (FirebaseAuth.getInstance().getCurrentUser() == null||!FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()) {
+        if (FirebaseAuth.getInstance().getCurrentUser() == null || !FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()) {
             Toast.makeText(this, "Please sign in and  verify your email to comment", Toast.LENGTH_SHORT).show();
         } else {
             FirebaseAuth.getInstance().getCurrentUser().reload();
             fab.setVisibility(View.VISIBLE);
             input.setVisibility(View.VISIBLE);
-            Toast.makeText(getApplicationContext(), "Welcome "+FirebaseAuth.getInstance().getCurrentUser().getDisplayName()+ " to the Free Week Section", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Welcome " + FirebaseAuth.getInstance().getCurrentUser().getDisplayName() + " to the Free Week Section", Toast.LENGTH_SHORT).show();
         }
 
         // this is the send button
@@ -81,12 +81,16 @@ public class FreeWeek extends AppCompatActivity implements NavigationView.OnNavi
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (FirebaseAuth.getInstance().getCurrentUser()!=null&&FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()==true) {
-                FirebaseDatabase.getInstance().getReference("Free Week").push().setValue(new ChatMessage(input.getText().toString(),
-                        FirebaseAuth.getInstance().getCurrentUser().getDisplayName(), FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl().toString()));
-                input.setText("");
+                if (FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()
+                        && FirebaseAuth.getInstance().getCurrentUser().getDisplayName() != null
+                        && FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl() != null) {
+                    FirebaseDatabase.getInstance().getReference("Free Week").push().setValue(new ChatMessage(input.getText().toString(),
+                            FirebaseAuth.getInstance().getCurrentUser().getDisplayName(),
+                            FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl().toString()));
+                    input.setText("");
                 } else {
-                    Snackbar.make(activity_forum_main, "You need to verify your email to comment", Snackbar.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Please set your display name and profile picture to comment",
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -133,7 +137,7 @@ public class FreeWeek extends AppCompatActivity implements NavigationView.OnNavi
                 finish();
                 break;
             case R.id.nav_login_register:
-                if(FirebaseAuth.getInstance().getCurrentUser()==null){
+                if (FirebaseAuth.getInstance().getCurrentUser() == null) {
                     startActivity(new Intent(this, Login.class));
                 } else {
                     Toast.makeText(this, "Already logged in", Toast.LENGTH_SHORT).show();
@@ -153,7 +157,7 @@ public class FreeWeek extends AppCompatActivity implements NavigationView.OnNavi
                 startActivity(new Intent(this, MainActivity.class));
                 break;
             case R.id.nav_profile:
-                if(FirebaseAuth.getInstance().getCurrentUser()==null){
+                if (FirebaseAuth.getInstance().getCurrentUser() == null) {
                     Toast.makeText(this, "Log in or register to view your profile", Toast.LENGTH_SHORT).show();
                 } else {
                     startActivity(new Intent(this, Profile.class));

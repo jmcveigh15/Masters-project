@@ -62,7 +62,7 @@ public class D1Fixtures extends AppCompatActivity implements FetchD1Fixtures.Asy
     // where they are set to values in the table
 
     @Override
-    public void doInBackground(ArrayList<String> strings) {
+    public void doInBackground(ArrayList<String> listOfD1Fixtures) {
         // try catch block catches a crash if the array is null due to json size being reduced
         // which it is prone to doing as it is constantly updating especially towards the end of the season
 
@@ -70,16 +70,16 @@ public class D1Fixtures extends AppCompatActivity implements FetchD1Fixtures.Asy
         String april27 = "1556370000";
         String may1 = "1556731800";
 
-        // setting first fixture row in prem division
+        // setting first fixture row in  division 1
         try {
             homeTeam1TextView = (TextView) findViewById(R.id.team_1_home);
-            homeTeam1TextView.setText((CharSequence) strings.get(0));
+            homeTeam1TextView.setText((CharSequence) listOfD1Fixtures.get(0));
             awayTeam1TextView = (TextView) findViewById(R.id.team_1_away);
-            awayTeam1TextView.setText((CharSequence) strings.get(1));
+            awayTeam1TextView.setText((CharSequence) listOfD1Fixtures.get(1));
             venue1TextView = (TextView) findViewById(R.id.team_1_venue);
-            venue1TextView.setText((CharSequence) strings.get(2));
+            venue1TextView.setText((CharSequence) listOfD1Fixtures.get(2));
             fixtureDate1 = (TextView) findViewById(R.id.match_date_1);
-            String date1 = strings.get(3);
+            String date1 = listOfD1Fixtures.get(3);
             if (date1.equals(april24)) {
                 date1 = "24/04";
             } else if (date1.equals(april27)) {
@@ -96,13 +96,13 @@ public class D1Fixtures extends AppCompatActivity implements FetchD1Fixtures.Asy
         // setting second fixture row in prem division
         try {
             homeTeam2TextView = (TextView) findViewById(R.id.team_2_home);
-            homeTeam2TextView.setText((CharSequence) strings.get(4));
+            homeTeam2TextView.setText((CharSequence) listOfD1Fixtures.get(4));
             awayTeam2TextView = (TextView) findViewById(R.id.team_2_away);
-            awayTeam2TextView.setText((CharSequence) strings.get(5));
+            awayTeam2TextView.setText((CharSequence) listOfD1Fixtures.get(5));
             venue2TextView = (TextView) findViewById(R.id.team_2_venue);
-            venue2TextView.setText((CharSequence) strings.get(6));
+            venue2TextView.setText((CharSequence) listOfD1Fixtures.get(6));
             fixtureDate2 = (TextView) findViewById(R.id.match_date_2);
-            String date = strings.get(7);
+            String date = listOfD1Fixtures.get(7);
             if (date.equals(april24)) {
                 date = "24/04";
             } else if (date.equals(april27)) {
@@ -117,13 +117,13 @@ public class D1Fixtures extends AppCompatActivity implements FetchD1Fixtures.Asy
         // setting third fixture row in prem division
         try {
             homeTeam3TextView = (TextView) findViewById(R.id.team_3_home);
-            homeTeam3TextView.setText((CharSequence) strings.get(8));
+            homeTeam3TextView.setText((CharSequence) listOfD1Fixtures.get(8));
             awayTeam3TextView = (TextView) findViewById(R.id.team_3_away);
-            awayTeam3TextView.setText((CharSequence) strings.get(9));
+            awayTeam3TextView.setText((CharSequence) listOfD1Fixtures.get(9));
             venue3TextView = (TextView) findViewById(R.id.team_3_venue);
-            venue3TextView.setText((CharSequence) strings.get(10));
+            venue3TextView.setText((CharSequence) listOfD1Fixtures.get(10));
             fixtureDate3 = (TextView) findViewById(R.id.match_date_3);
-            String date = strings.get(11);
+            String date = listOfD1Fixtures.get(11);
             if (date.equals(april24)) {
                 date = "24/04";
             } else if (date.equals(april27)) {
@@ -138,13 +138,13 @@ public class D1Fixtures extends AppCompatActivity implements FetchD1Fixtures.Asy
         // setting 4th fixture row in prem division
         try {
             homeTeam4TextView = (TextView) findViewById(R.id.team_4_home);
-            homeTeam4TextView.setText((CharSequence) strings.get(12));
+            homeTeam4TextView.setText((CharSequence) listOfD1Fixtures.get(12));
             awayTeam4TextView = (TextView) findViewById(R.id.team_4_away);
-            awayTeam4TextView.setText((CharSequence) strings.get(13));
+            awayTeam4TextView.setText((CharSequence) listOfD1Fixtures.get(13));
             venue4TextView = (TextView) findViewById(R.id.team_4_venue);
-            venue4TextView.setText((CharSequence) strings.get(14));
+            venue4TextView.setText((CharSequence) listOfD1Fixtures.get(14));
             fixtureDate4 = (TextView) findViewById(R.id.match_date_4);
-            String date = strings.get(15);
+            String date = listOfD1Fixtures.get(15);
             if (date.equals(april24)) {
                 date = "24/04";
             } else if (date.equals(april27)) {
@@ -159,13 +159,13 @@ public class D1Fixtures extends AppCompatActivity implements FetchD1Fixtures.Asy
         // setting 5th fixture row in prem division
         try {
             homeTeam5TextView = (TextView) findViewById(R.id.team_5_home);
-            homeTeam5TextView.setText((CharSequence) strings.get(16));
+            homeTeam5TextView.setText((CharSequence) listOfD1Fixtures.get(16));
             awayTeam5TextView = (TextView) findViewById(R.id.team_5_away);
-            awayTeam5TextView.setText((CharSequence) strings.get(17));
+            awayTeam5TextView.setText((CharSequence) listOfD1Fixtures.get(17));
             venue5TextView = (TextView) findViewById(R.id.team_5_venue);
-            venue5TextView.setText((CharSequence) strings.get(18));
+            venue5TextView.setText((CharSequence) listOfD1Fixtures.get(18));
             fixtureDate5 = (TextView) findViewById(R.id.match_date_5);
-            String date = strings.get(19);
+            String date = listOfD1Fixtures.get(19);
             if (date.equals(april24)) {
                 date = "24/04";
             } else if (date.equals(april27)) {

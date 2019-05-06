@@ -12,40 +12,33 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.firebase.auth.FirebaseAuth;
-
 import java.util.ArrayList;
 
-// this class is the front end of the premier league fixtures
+// this class is the front end of the premier league results
 // it shows parsed json data in a table using updated textViews
 public class D1Results extends AppCompatActivity implements FetchD1Results.AsyncResponse, NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout mDrawerLayout;
 
     // homeTeam textViews
-    private TextView homeTeam1TextView, homeTeam2TextView, homeTeam3TextView, homeTeam4TextView, homeTeam5TextView,
-            homeTeam6TextView, homeTeam7TextView, homeTeam8TextView, homeTeam9TextView, homeTeam10TextView,
+    private TextView
             homeTeam11TextView, homeTeam12TextView, homeTeam13TextView, homeTeam14TextView, homeTeam15TextView, homeTeam16TextView,
             homeTeam17TextView, homeTeam18TextView, homeTeam19TextView, homeTeam20TextView;
 
     // awayTeam textViews
-    private TextView awayTeam1TextView, awayTeam2TextView, awayTeam3TextView, awayTeam4TextView, awayTeam5TextView,
-            awayTeam6TextView, awayTeam7TextView, awayTeam8TextView, awayTeam9TextView, awayTeam10TextView,
+    private TextView
             awayTeam11TextView, awayTeam12TextView, awayTeam13TextView, awayTeam14TextView, awayTeam15TextView, awayTeam16TextView,
             awayTeam17TextView, awayTeam18TextView, awayTeam19TextView, awayTeam20TextView;
 
     // homeTeamScore textViews
-    private TextView homeTeam1ScoreTextView, homeTeam2ScoreTextView, homeTeam3ScoreTextView,
-            homeTeam4ScoreTextView, homeTeam5ScoreTextView, homeTeam6ScoreTextView, homeTeam7ScoreTextView, homeTeam8ScoreTextView,
-            homeTeam9ScoreTextView, homeTeam10ScoreTextView, homeTeam11ScoreTextView, homeTeam12ScoreTextView, homeTeam13ScoreTextView,
+    private TextView homeTeam11ScoreTextView, homeTeam12ScoreTextView, homeTeam13ScoreTextView,
             homeTeam14ScoreTextView, homeTeam15ScoreTextView, homeTeam16ScoreTextView, homeTeam17ScoreTextView, homeTeam18ScoreTextView,
             homeTeam19ScoreTextView, homeTeam20ScoreTextView;
 
     // date textviews
-    private TextView fixtureDate1, fixtureDate2, fixtureDate3, fixtureDate4, fixtureDate5, fixtureDate6, fixtureDate7,
-            fixtureDate8, fixtureDate9,fixtureDate10, fixtureDate11, fixtureDate12, fixtureDate13, fixtureDate14, fixtureDate15,
-            fixtureDate16,fixtureDate17, fixtureDate18,fixtureDate19, fixtureDate20;
+    private TextView fixtureDate11, fixtureDate12, fixtureDate13, fixtureDate14, fixtureDate15,
+            fixtureDate16, fixtureDate17, fixtureDate18, fixtureDate19, fixtureDate20;
 
 
     @Override
@@ -56,6 +49,7 @@ public class D1Results extends AppCompatActivity implements FetchD1Results.Async
         // this executes the doInBackGround async activity to retrieve json data and parse it
         new FetchD1Results(this).execute();
 
+        // assign nav bar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -72,9 +66,8 @@ public class D1Results extends AppCompatActivity implements FetchD1Results.Async
     // where they are set to values in the table
     @Override
     public void doInBackground(ArrayList<String> ar) {
-        // try catch block catches a crash if the array is null due to json size being reduced
-        // which it is prone to doing as it is constantly updating especially towards the end of the season
 
+        // assign long dates to strings
         String march_30 = "1553954400";
         String april_3 = "1554311700";
         String april_6 = "1554555600";
@@ -86,181 +79,12 @@ public class D1Results extends AppCompatActivity implements FetchD1Results.Async
         String april_27 = "1556370000";
         String may_1 = "1556731800";
 
-        try {
-            homeTeam6TextView = (TextView) findViewById(R.id.team_6_home);
-            homeTeam6TextView.setText((CharSequence) ar.get(80));
-            awayTeam6TextView = (TextView) findViewById(R.id.team_6_away);
-            awayTeam6TextView.setText((CharSequence) ar.get(81));
-            homeTeam6ScoreTextView = (TextView) findViewById(R.id.result_6);
-            homeTeam6ScoreTextView.setText((CharSequence) ar.get(82));
-            fixtureDate6 = (TextView) findViewById(R.id.match_6_date);
-            String date1 = ar.get(83);
-            if (date1.equals(april_24)) {
-                date1 = "24/04";
-            } else if (date1.equals(april_27)) {
-                date1 = "27/04";
-            } else if (date1.equals(may_1)) {
-                date1 = "01/05";
-            } else if (date1.equals(march_30)) {
-                date1 = "30/03";
-            } else if (date1.equals(april_3)) {
-                date1 = "03/04";
-            }else if (date1.equals(april_6)) {
-                date1 = "06/04";
-            } else if (date1.equals(april_10)) {
-                date1 = "10/04";
-            }else if (date1.equals(april_13)) {
-                date1 = "13/04";
-            } else if (date1.equals(april_17)) {
-                date1 = "17/04";
-            }else if (date1.equals(april_20)) {
-                date1 = "20/04";
-            } else {
-                date1 = "Unavailable";
-            }
-            fixtureDate6.setText(date1);
-        } catch (IndexOutOfBoundsException e) {}
+        // rows 1-10 removed as not used by decreasing json file size
 
-        try {
-            homeTeam7TextView = (TextView) findViewById(R.id.team_7_home);
-            homeTeam7TextView.setText((CharSequence) ar.get(76));
-            awayTeam7TextView = (TextView) findViewById(R.id.team_7_away);
-            awayTeam7TextView.setText((CharSequence) ar.get(77));
-            homeTeam7ScoreTextView = (TextView) findViewById(R.id.result_7);
-            homeTeam7ScoreTextView.setText((CharSequence) ar.get(78));
-            fixtureDate7 = (TextView) findViewById(R.id.match_7_date);
-            String date1 = ar.get(79);
-            if (date1.equals(april_24)) {
-                date1 = "24/04";
-            } else if (date1.equals(april_27)) {
-                date1 = "27/04";
-            } else if (date1.equals(may_1)) {
-                date1 = "01/05";
-            } else if (date1.equals(march_30)) {
-                date1 = "30/03";
-            } else if (date1.equals(april_3)) {
-                date1 = "03/04";
-            }else if (date1.equals(april_6)) {
-                date1 = "06/04";
-            } else if (date1.equals(april_10)) {
-                date1 = "10/04";
-            }else if (date1.equals(april_13)) {
-                date1 = "13/04";
-            } else if (date1.equals(april_17)) {
-                date1 = "17/04";
-            }else if (date1.equals(april_20)) {
-                date1 = "20/04";
-            } else {
-                date1 = "Unavailable";
-            }
-            fixtureDate7.setText(date1);
-        } catch (IndexOutOfBoundsException e) {}
 
-        try {
-            homeTeam8TextView = (TextView) findViewById(R.id.team_8_home);
-            homeTeam8TextView.setText((CharSequence) ar.get(72));
-            awayTeam8TextView = (TextView) findViewById(R.id.team_8_away);
-            awayTeam8TextView.setText((CharSequence) ar.get(73));
-            homeTeam8ScoreTextView = (TextView) findViewById(R.id.result_8);
-            homeTeam8ScoreTextView.setText((CharSequence) ar.get(74));
-            fixtureDate8 = (TextView) findViewById(R.id.match_8_date);
-            String date1 = ar.get(75);
-            if (date1.equals(april_24)) {
-                date1 = "24/04";
-            } else if (date1.equals(april_27)) {
-                date1 = "27/04";
-            } else if (date1.equals(may_1)) {
-                date1 = "01/05";
-            } else if (date1.equals(march_30)) {
-                date1 = "30/03";
-            } else if (date1.equals(april_3)) {
-                date1 = "03/04";
-            }else if (date1.equals(april_6)) {
-                date1 = "06/04";
-            } else if (date1.equals(april_10)) {
-                date1 = "10/04";
-            }else if (date1.equals(april_13)) {
-                date1 = "13/04";
-            } else if (date1.equals(april_17)) {
-                date1 = "17/04";
-            }else if (date1.equals(april_20)) {
-                date1 = "20/04";
-            } else {
-                date1 = "Unavailable";
-            }
-            fixtureDate8.setText(date1);
-        } catch (IndexOutOfBoundsException e) {}
-
-        try {
-            homeTeam9TextView = (TextView) findViewById(R.id.team_9_home);
-            homeTeam9TextView.setText((CharSequence) ar.get(68));
-            awayTeam9TextView = (TextView) findViewById(R.id.team_9_away);
-            awayTeam9TextView.setText((CharSequence) ar.get(69));
-            homeTeam9ScoreTextView = (TextView) findViewById(R.id.result_9);
-            homeTeam9ScoreTextView.setText((CharSequence) ar.get(70));
-            fixtureDate9 = (TextView) findViewById(R.id.match_9_date);
-            String date1 = ar.get(71);
-            if (date1.equals(april_24)) {
-                date1 = "24/04";
-            } else if (date1.equals(april_27)) {
-                date1 = "27/04";
-            } else if (date1.equals(may_1)) {
-                date1 = "01/05";
-            } else if (date1.equals(march_30)) {
-                date1 = "30/03";
-            } else if (date1.equals(april_3)) {
-                date1 = "03/04";
-            }else if (date1.equals(april_6)) {
-                date1 = "06/04";
-            } else if (date1.equals(april_10)) {
-                date1 = "10/04";
-            }else if (date1.equals(april_13)) {
-                date1 = "13/04";
-            } else if (date1.equals(april_17)) {
-                date1 = "17/04";
-            }else if (date1.equals(april_20)) {
-                date1 = "20/04";
-            } else {
-                date1 = "Unavailable";
-            }
-            fixtureDate9.setText(date1);
-        } catch (IndexOutOfBoundsException e) {}
-
-        try {
-            homeTeam10TextView = (TextView) findViewById(R.id.team_10_home);
-            homeTeam10TextView.setText((CharSequence) ar.get(64));
-            awayTeam10TextView = (TextView) findViewById(R.id.team_10_away);
-            awayTeam10TextView.setText((CharSequence) ar.get(65));
-            homeTeam10ScoreTextView = (TextView) findViewById(R.id.result_10);
-            homeTeam10ScoreTextView.setText((CharSequence) ar.get(66));
-            fixtureDate10 = (TextView) findViewById(R.id.match_10_date);
-            String date1 = ar.get(67);
-            if (date1.equals(april_24)) {
-                date1 = "24/04";
-            } else if (date1.equals(april_27)) {
-                date1 = "27/04";
-            } else if (date1.equals(may_1)) {
-                date1 = "01/05";
-            } else if (date1.equals(march_30)) {
-                date1 = "30/03";
-            } else if (date1.equals(april_3)) {
-                date1 = "03/04";
-            }else if (date1.equals(april_6)) {
-                date1 = "06/04";
-            } else if (date1.equals(april_10)) {
-                date1 = "10/04";
-            }else if (date1.equals(april_13)) {
-                date1 = "13/04";
-            } else if (date1.equals(april_17)) {
-                date1 = "17/04";
-            }else if (date1.equals(april_20)) {
-                date1 = "20/04";
-            } else {
-                date1 = "Unavailable";
-            }
-            fixtureDate10.setText(date1);
-        } catch (IndexOutOfBoundsException e) {}
-
+        // try catch block catches a crash if the array is null due to json size being reduced
+        // which it is prone to doing as it is constantly updating especially towards the end of the season
+        // assign values in json data array to textviews
         try {
             homeTeam11TextView = (TextView) findViewById(R.id.team_11_home);
             homeTeam11TextView.setText((CharSequence) ar.get(60));
@@ -280,21 +104,22 @@ public class D1Results extends AppCompatActivity implements FetchD1Results.Async
                 date1 = "30/03";
             } else if (date1.equals(april_3)) {
                 date1 = "03/04";
-            }else if (date1.equals(april_6)) {
+            } else if (date1.equals(april_6)) {
                 date1 = "06/04";
             } else if (date1.equals(april_10)) {
                 date1 = "10/04";
-            }else if (date1.equals(april_13)) {
+            } else if (date1.equals(april_13)) {
                 date1 = "13/04";
             } else if (date1.equals(april_17)) {
                 date1 = "17/04";
-            }else if (date1.equals(april_20)) {
+            } else if (date1.equals(april_20)) {
                 date1 = "20/04";
             } else {
                 date1 = "Unavailable";
             }
             fixtureDate11.setText(date1);
-        } catch (IndexOutOfBoundsException e) {}
+        } catch (IndexOutOfBoundsException e) {
+        }
 
         try {
             homeTeam12TextView = (TextView) findViewById(R.id.team_12_home);
@@ -315,21 +140,22 @@ public class D1Results extends AppCompatActivity implements FetchD1Results.Async
                 date1 = "30/03";
             } else if (date1.equals(april_3)) {
                 date1 = "03/04";
-            }else if (date1.equals(april_6)) {
+            } else if (date1.equals(april_6)) {
                 date1 = "06/04";
             } else if (date1.equals(april_10)) {
                 date1 = "10/04";
-            }else if (date1.equals(april_13)) {
+            } else if (date1.equals(april_13)) {
                 date1 = "13/04";
             } else if (date1.equals(april_17)) {
                 date1 = "17/04";
-            }else if (date1.equals(april_20)) {
+            } else if (date1.equals(april_20)) {
                 date1 = "20/04";
             } else {
                 date1 = "Unavailable";
             }
             fixtureDate12.setText(date1);
-        } catch (IndexOutOfBoundsException e) {}
+        } catch (IndexOutOfBoundsException e) {
+        }
 
         try {
             homeTeam13TextView = (TextView) findViewById(R.id.team_13_home);
@@ -350,21 +176,22 @@ public class D1Results extends AppCompatActivity implements FetchD1Results.Async
                 date1 = "30/03";
             } else if (date1.equals(april_3)) {
                 date1 = "03/04";
-            }else if (date1.equals(april_6)) {
+            } else if (date1.equals(april_6)) {
                 date1 = "06/04";
             } else if (date1.equals(april_10)) {
                 date1 = "10/04";
-            }else if (date1.equals(april_13)) {
+            } else if (date1.equals(april_13)) {
                 date1 = "13/04";
             } else if (date1.equals(april_17)) {
                 date1 = "17/04";
-            }else if (date1.equals(april_20)) {
+            } else if (date1.equals(april_20)) {
                 date1 = "20/04";
             } else {
                 date1 = "Unavailable";
             }
             fixtureDate13.setText(date1);
-        } catch (IndexOutOfBoundsException e) {}
+        } catch (IndexOutOfBoundsException e) {
+        }
 
         try {
             homeTeam14TextView = (TextView) findViewById(R.id.team_14_home);
@@ -385,21 +212,22 @@ public class D1Results extends AppCompatActivity implements FetchD1Results.Async
                 date1 = "30/03";
             } else if (date1.equals(april_3)) {
                 date1 = "03/04";
-            }else if (date1.equals(april_6)) {
+            } else if (date1.equals(april_6)) {
                 date1 = "06/04";
             } else if (date1.equals(april_10)) {
                 date1 = "10/04";
-            }else if (date1.equals(april_13)) {
+            } else if (date1.equals(april_13)) {
                 date1 = "13/04";
             } else if (date1.equals(april_17)) {
                 date1 = "17/04";
-            }else if (date1.equals(april_20)) {
+            } else if (date1.equals(april_20)) {
                 date1 = "20/04";
             } else {
                 date1 = "Unavailable";
             }
             fixtureDate14.setText(date1);
-        } catch (IndexOutOfBoundsException e) {}
+        } catch (IndexOutOfBoundsException e) {
+        }
 
         try {
             homeTeam15TextView = (TextView) findViewById(R.id.team_15_home);
@@ -420,21 +248,22 @@ public class D1Results extends AppCompatActivity implements FetchD1Results.Async
                 date1 = "30/03";
             } else if (date1.equals(april_3)) {
                 date1 = "03/04";
-            }else if (date1.equals(april_6)) {
+            } else if (date1.equals(april_6)) {
                 date1 = "06/04";
             } else if (date1.equals(april_10)) {
                 date1 = "10/04";
-            }else if (date1.equals(april_13)) {
+            } else if (date1.equals(april_13)) {
                 date1 = "13/04";
             } else if (date1.equals(april_17)) {
                 date1 = "17/04";
-            }else if (date1.equals(april_20)) {
+            } else if (date1.equals(april_20)) {
                 date1 = "20/04";
             } else {
                 date1 = "Unavailable";
             }
             fixtureDate15.setText(date1);
-        } catch (IndexOutOfBoundsException e) {}
+        } catch (IndexOutOfBoundsException e) {
+        }
 
 
         try {
@@ -456,21 +285,22 @@ public class D1Results extends AppCompatActivity implements FetchD1Results.Async
                 date1 = "30/03";
             } else if (date1.equals(april_3)) {
                 date1 = "03/04";
-            }else if (date1.equals(april_6)) {
+            } else if (date1.equals(april_6)) {
                 date1 = "06/04";
             } else if (date1.equals(april_10)) {
                 date1 = "10/04";
-            }else if (date1.equals(april_13)) {
+            } else if (date1.equals(april_13)) {
                 date1 = "13/04";
             } else if (date1.equals(april_17)) {
                 date1 = "17/04";
-            }else if (date1.equals(april_20)) {
+            } else if (date1.equals(april_20)) {
                 date1 = "20/04";
             } else {
                 date1 = "Unavailable";
             }
             fixtureDate16.setText(date1);
-        } catch (IndexOutOfBoundsException e) {}
+        } catch (IndexOutOfBoundsException e) {
+        }
 
         try {
             homeTeam17TextView = (TextView) findViewById(R.id.team_17_home);
@@ -491,21 +321,22 @@ public class D1Results extends AppCompatActivity implements FetchD1Results.Async
                 date1 = "30/03";
             } else if (date1.equals(april_3)) {
                 date1 = "03/04";
-            }else if (date1.equals(april_6)) {
+            } else if (date1.equals(april_6)) {
                 date1 = "06/04";
             } else if (date1.equals(april_10)) {
                 date1 = "10/04";
-            }else if (date1.equals(april_13)) {
+            } else if (date1.equals(april_13)) {
                 date1 = "13/04";
             } else if (date1.equals(april_17)) {
                 date1 = "17/04";
-            }else if (date1.equals(april_20)) {
+            } else if (date1.equals(april_20)) {
                 date1 = "20/04";
             } else {
                 date1 = "Unavailable";
             }
             fixtureDate17.setText(date1);
-        } catch (IndexOutOfBoundsException e) {}
+        } catch (IndexOutOfBoundsException e) {
+        }
 
         try {
             homeTeam18TextView = (TextView) findViewById(R.id.team_18_home);
@@ -526,21 +357,22 @@ public class D1Results extends AppCompatActivity implements FetchD1Results.Async
                 date1 = "30/03";
             } else if (date1.equals(april_3)) {
                 date1 = "03/04";
-            }else if (date1.equals(april_6)) {
+            } else if (date1.equals(april_6)) {
                 date1 = "06/04";
             } else if (date1.equals(april_10)) {
                 date1 = "10/04";
-            }else if (date1.equals(april_13)) {
+            } else if (date1.equals(april_13)) {
                 date1 = "13/04";
             } else if (date1.equals(april_17)) {
                 date1 = "17/04";
-            }else if (date1.equals(april_20)) {
+            } else if (date1.equals(april_20)) {
                 date1 = "20/04";
             } else {
                 date1 = "Unavailable";
             }
             fixtureDate18.setText(date1);
-        } catch (IndexOutOfBoundsException e) {}
+        } catch (IndexOutOfBoundsException e) {
+        }
 
         try {
             homeTeam19TextView = (TextView) findViewById(R.id.team_19_home);
@@ -561,21 +393,22 @@ public class D1Results extends AppCompatActivity implements FetchD1Results.Async
                 date1 = "30/03";
             } else if (date1.equals(april_3)) {
                 date1 = "03/04";
-            }else if (date1.equals(april_6)) {
+            } else if (date1.equals(april_6)) {
                 date1 = "06/04";
             } else if (date1.equals(april_10)) {
                 date1 = "10/04";
-            }else if (date1.equals(april_13)) {
+            } else if (date1.equals(april_13)) {
                 date1 = "13/04";
             } else if (date1.equals(april_17)) {
                 date1 = "17/04";
-            }else if (date1.equals(april_20)) {
+            } else if (date1.equals(april_20)) {
                 date1 = "20/04";
             } else {
                 date1 = "Unavailable";
             }
             fixtureDate19.setText(date1);
-        } catch (IndexOutOfBoundsException e) {}
+        } catch (IndexOutOfBoundsException e) {
+        }
 
         try {
             homeTeam20TextView = (TextView) findViewById(R.id.team_20_home);
@@ -596,22 +429,24 @@ public class D1Results extends AppCompatActivity implements FetchD1Results.Async
                 date1 = "30/03";
             } else if (date1.equals(april_3)) {
                 date1 = "03/04";
-            }else if (date1.equals(april_6)) {
+            } else if (date1.equals(april_6)) {
                 date1 = "06/04";
             } else if (date1.equals(april_10)) {
                 date1 = "10/04";
-            }else if (date1.equals(april_13)) {
+            } else if (date1.equals(april_13)) {
                 date1 = "13/04";
             } else if (date1.equals(april_17)) {
                 date1 = "17/04";
-            }else if (date1.equals(april_20)) {
+            } else if (date1.equals(april_20)) {
                 date1 = "20/04";
             } else {
                 date1 = "Unavailable";
             }
             fixtureDate20.setText(date1);
-        } catch (IndexOutOfBoundsException e) {}
+        } catch (IndexOutOfBoundsException e) {
+        }
     }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
